@@ -15,8 +15,11 @@
 
 /* Apps */
 /* email */
-@import 'apps/mail/eemail-app.css';
+@import 'apps/mail/email-app.css';
 @import 'apps/mail/email-list.css';
 @import 'apps/mail/email-preview.css';
+@import 'apps/mail/email-filter.css';
+@import 'apps/mail/email-folder-list.css';
+@import 'apps/mail/email-compose.css';
 /* note */
 @import 'apps/note/note-app.css';
