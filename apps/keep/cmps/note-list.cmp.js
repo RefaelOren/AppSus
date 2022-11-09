@@ -1,9 +1,9 @@
-import noteImg from "./note-img.cmp.js";
-import noteTxt from "./note-txt.cmp.js";
-import noteTodos from "./note-todos.cmp.js";
+import noteImg from './note-img.cmp.js';
+import noteTxt from './note-txt.cmp.js';
+import noteTodos from './note-todos.cmp.js';
 
 export default {
-    props:[ 'pinnedNotes','unPinnedNotes'],
+    props: ['pinnedNotes', 'unPinnedNotes'],
     template: `
         <section class="note-list">
             <ul>
@@ -30,23 +30,19 @@ export default {
             </ul>
         </section>
     `,
-    data(){
-        return {
-            
-        }
+    data() {
+        return {};
     },
     methods: {
-        togglePin(id){
+        togglePin(id) {
             console.log(id);
-            this.$emit('toggle',id)
-        }, 
+            this.$emit('toggle', id);
+        },
     },
-    computed: {
-
-    },
+    computed: {},
     components: {
-		noteTodos,
+        noteTodos,
         noteTxt,
         noteImg,
-	},
+    },
 };
