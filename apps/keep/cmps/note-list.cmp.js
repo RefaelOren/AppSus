@@ -1,13 +1,36 @@
-import notePreview from "./note-preview.cmp.js";
+import noteImg from "./note-img.cmp.js";
+import noteTxt from "./note-txt.cmp.js";
+import noteTodos from "./note-todos.cmp.js";
 
 export default {
+    props:['notes'],
     template: `
         <section class="note-list">
-            <h1>note list</h1>
-            <note-preview />
+            <ul>
+                <li v-for="note in notes" :key="note.id">
+                    <!-- <note-preview :note="note"/> -->
+                    <component
+                        :is="note.type" 
+                        :note="note">
+                    </component>
+                </li>
+            </ul>
         </section>
     `,
+    data(){
+        return {
+
+        }
+    },
+    methods: {
+      
+    },
+    computed: {
+
+    },
     components: {
-		notePreview
+		noteTodos,
+        noteTxt,
+        noteImg,
 	},
 };

@@ -4,4 +4,7 @@ export default {
             <h1>note details</h1>
         </section>
     `,
+    components: {
+		
+	},
 };
