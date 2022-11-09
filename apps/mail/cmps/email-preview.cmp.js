@@ -22,7 +22,7 @@ export default {
             return new Date(this.email.sentAt).toDateString().substring(4, 10);
         },
         subject() {
-            return this.email.subject.substring(0, 50) + '...';
+            return this.email.subject.substring(0, 70) + '...';
         },
     },
 };

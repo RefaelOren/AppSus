@@ -6,11 +6,8 @@ export default {
        <section class="email-list">
           <table>
                 <tr v-for="email in emails" >
-                    <router-link :to="'/email/'+ email.id">
-                       <email-preview :email="email" /> 
-                    </router-link>
-
-                </tr>
+                    <email-preview :email="email" /> 
+                 </tr>
             </table>
        </section>
     `,
