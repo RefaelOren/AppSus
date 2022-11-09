@@ -8,30 +8,51 @@ export default {
     template: `
         <section class="note-index">
             <h1>note index</h1>
-            <note-list 
+            <note-list
+                @toggle="togglePin" 
                 v-if="notes" 
-                :notes="notesToShow"/>
+                :pinnedNotes="pinnedNotesToShow"
+                :unPinnedNotes="unPinnedNotesToShow"/>
             <note-details />
         </section>
     `,
     data(){
         return {
             notes:[],
+            pinnedNotes:[],
+            unPinnedNotes:[],
         }
     },
     created(){
         noteService.query()
             .then(notes => {
                 this.notes = notes
-                console.log(this.notes);
+                this.sortNotes()
             })
     },
     methods: {
+        togglePin(id){
+            noteService.togglePin(id)
+            const idx = this.notes.findIndex(note => note.id === id)
+            this.notes[idx].isPinned = !this.notes[idx].isPinned
+            this.sortNotes()
+        },
+        sortNotes(){
+            this.pinnedNotes = []
+            this.unPinnedNotes = []
+            this.notes.forEach(note => {
+                if(note.isPinned) this.pinnedNotes.push(note)
+                else this.unPinnedNotes.push(note)
+            });
+        }
       
     },
     computed: {
-        notesToShow(){
-            return this.notes
+        pinnedNotesToShow(){
+            return this.pinnedNotes
+        },
+        unPinnedNotesToShow(){
+            return this.unPinnedNotes
         },
     },
     components: {

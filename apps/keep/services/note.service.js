@@ -3,6 +3,7 @@ import {utilService} from '../../../services/util.service.js';
 
 export const noteService={
     query,
+    togglePin,
 }
 const NOTES_KEY = 'notesDB'
 
@@ -11,11 +12,13 @@ const notes = [
         id: "n101", 
         type: "note-txt", 
         isPinned: true, 
-        info: { txt: "Fullstack Me Baby!" } 
+        info: { txt: "Fullstack Me Baby!" },
+        style: { backgroundColor: "#FF5733" } 
     }, 
     { 
         id: "n102", 
-        type: "note-img", 
+        type: "note-img",
+        isPinned: false, 
         info: { 
             url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSw0gWlEimLsPylCKAm95y1K27fCdzXEHGhXYTfEWXo&s", 
             title: "Bobi and Me" 
@@ -25,12 +28,15 @@ const notes = [
     { 
         id: "n103", 
         type: "note-todos", 
-        info: { label: "Get my stuff together", 
+        isPinned: false,
+        info: { 
+            label: "Get my stuff together", 
             todos: [ 
                 { txt: "Driving liscence", doneAt: null }, 
                 { txt: "Coding power", doneAt: 187111111}
                 ]
-            } 
+            },
+        style: { backgroundColor: "#FFFFFF" } 
     } 
 ] 
 
@@ -38,8 +44,23 @@ function query(){
     return storageService.query(NOTES_KEY)
         .then(note => {
             if(!note || !note.length){
-                return storageService.put(NOTES_KEY,notes)
+                note = notes
+                _save(NOTES_KEY,note)
             }
-            else return note[0]
+            return note
         })
+}
+
+function togglePin(noteId){
+    return storageService.query(NOTES_KEY)
+        .then(dataNotes=>{
+            const idx = dataNotes.findIndex(note => note.id === noteId)
+            if(dataNotes[idx].isPinned) dataNotes[idx].isPinned = false
+            else dataNotes[idx].isPinned = true
+            return storageService.put(NOTES_KEY,dataNotes[idx])
+        })
+}
+
+function _save(entityType, entities) {
+    localStorage.setItem(entityType, JSON.stringify(entities))
 }
