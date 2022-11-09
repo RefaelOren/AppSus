@@ -9,6 +9,7 @@ export default {
                 <label :for="todo.txt"> {{todo.txt}}</label>
             </section>
             <button class="btn-pin" @click="togglePin(note.id)" >
+                <i class="fa-regular fa-thumbtack"></i>
                 <!-- <img src="data:image/svg+xml;base64,PHN2ZyB4bW
                 xucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdp
                 ZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwID
