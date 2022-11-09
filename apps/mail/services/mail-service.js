@@ -79,3 +79,11 @@ const emails = [
         to: 'user@appsus.com',
     },
 ];
+
+const criteria = {
+    status: 'inbox/sent/trash/draft',
+    txt: 'puki',
+    isRead: true,
+    isStared: true,
+    lables: ['important', 'romantic'],
+};

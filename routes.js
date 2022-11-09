@@ -1,8 +1,8 @@
 import homePage from './views/app-home.cmp.js';
 import aboutPage from './views/app-about.cmp.js';
 
-import mailApp from './views/app-mail.cmp.js';
-import noteApp from './views/app-note.cmp.js';
+import mailApp from './apps/mail/pages/mail-index.cmp.js';
+import noteApp from './apps/keep/pages/note-index.cmp.js';
 
 const { createRouter, createWebHashHistory } = VueRouter;
 
@@ -14,7 +14,7 @@ const routerOptions = {
             component: homePage,
         },
         {
-            path: '/mail',
+            path: '/email',
             component: mailApp,
         },
         {
