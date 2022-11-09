@@ -1,6 +1,12 @@
 import { storageService } from '../../../services/async-storage.service.js';
 import { utilService } from '../../../services/util.service.js';
 
+const EMAIL_KEY = 'emailDB';
+
+export const mailService = {
+    query,
+};
+
 const loggedinUser = {
     email: 'user@appsus.com',
     fullname: 'Eranfi Appsus',
@@ -8,73 +14,81 @@ const loggedinUser = {
 const emails = [
     {
         id: 'e101',
-        subject: 'Miss you!',
-        body: 'Would love to catch up sometimes',
+        subject:
+            'Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias facere, veritatis ad vitae dolore aliquam vel totam fuga quos temporibus.!',
+        body: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias facere, veritatis ad vitae dolore aliquam vel totam fuga quos temporibus.Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias facere, veritatis ad vitae dolore aliquam vel totam fuga quos temporibus.',
         isRead: false,
-        sentAt: 1551133930594,
+        sentAt: Date.now() - 100000000,
         from: 'momo@momo.com',
         to: 'user@appsus.com',
     },
     {
         id: 'e102',
-        subject: 'Reminder',
-        body: 'Reminder to pay rent for the office',
+        subject:
+            'Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias facere, veritatis ad vitae dolore aliquam vel totam fuga quos temporibus.',
+        body: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias facere, veritatis ad vitae dolore aliquam vel totam fuga quos temporibus.Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias facere, veritatis ad vitae dolore aliquam vel totam fuga quos temporibus.',
         isRead: true,
-        sentAt: 1551138030594,
+        sentAt: Date.now() - 200000000,
         from: 'landowner@momo.com',
         to: 'user@appsus.com',
     },
     {
         id: 'e103',
-        subject: 'Hey dude',
-        body: 'Would love to meet you in our regular place',
+        subject:
+            'Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias facere, veritatis ad vitae dolore aliquam vel totam fuga quos temporibus.',
+        body: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias facere, veritatis ad vitae dolore aliquam vel totam fuga quos temporiLorem ipsum dolor sit amet consectetur adipisicing elit. Alias facere, veritatis ad vitae dolore aliquam vel totam fuga quos temporibus.bus.',
         isRead: false,
-        sentAt: 1551137030594,
+        sentAt: Date.now() - 300000000,
         from: 'popo@momo.com',
         to: 'user@appsus.com',
     },
     {
         id: 'e104',
-        subject: 'linkedin',
-        body: 'You have 2 new messages, check it out',
+        subject:
+            'Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias facere, veritatis ad vitae dolore aliquam vel totam fuga quos temporibus.',
+        body: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias facere, veritatis ad vitae dolore aliquam vel totam fuga quos temporibus.Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias facere, veritatis ad vitae dolore aliquam vel totam fuga quos temporibus.',
         isRead: true,
-        sentAt: 1551136030594,
+        sentAt: Date.now() - 400000000,
         from: 'linkedin@app.com',
         to: 'user@appsus.com',
     },
     {
         id: 'e105',
-        subject: 'Password',
-        body: 'Your password was updated, please note us if something wrong',
+        subject:
+            'Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias facere, veritatis ad vitae dolore aliquam vel totam fuga quos temporibus.',
+        body: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias facere, veritatis ad vitae dolore aliquam vel totam fuga quos temporibus.Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias facere, veritatis ad vitae dolore aliquam vel totam fuga quos temporibus.',
         isRead: false,
-        sentAt: 1551135030594,
+        sentAt: Date.now() - 500000000,
         from: 'gov-il@gov.com',
         to: 'user@appsus.com',
     },
     {
         id: 'e106',
-        subject: 'Hello papa!',
-        body: 'I miss you a lot, when can we meet?',
+        subject:
+            'Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias facere, veritatis ad vitae dolore aliquam vel totam fuga quos temporibus.',
+        body: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias facere, veritatis ad vitae dolore aliquam vel totam fuga quos temporibus.Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias facere, veritatis ad vitae dolore aliquam vel totam fuga quos temporibus.',
         isRead: true,
-        sentAt: 1551134030594,
+        sentAt: Date.now() - 600000000,
         from: 'kuki@kuki.com',
         to: 'user@appsus.com',
     },
     {
         id: 'e107',
-        subject: 'facebook',
-        body: 'Please update your profile and come to see us soon',
+        subject:
+            'Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias facere, veritatis ad vitae dolore aliquam vel totam fuga quos temporibus.',
+        body: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias facere, veritatis ad vitae dolore aliquam vel totam fuga quos temporibus.Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias facere, veritatis ad vitae dolore aliquam vel totam fuga quos temporibus.',
         isRead: true,
-        sentAt: 1551133030594,
+        sentAt: Date.now() - 700000000,
         from: 'facebook@app.com',
         to: 'user@appsus.com',
     },
     {
         id: 'e108',
-        subject: 'gitHub',
-        body: 'A new features in our premium account ',
+        subject:
+            'Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias facere, veritatis ad vitae dolore aliquam vel totam fuga quos temporibus.',
+        body: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias facere, veritatis ad vitae dolore aliquam vel totam fuga quos temporibus.Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias facere, veritatis ad vitae dolore aliquam vel totam fuga quos temporibus.',
         isRead: false,
-        sentAt: 1551132030594,
+        sentAt: Date.now() - 800000000,
         from: 'gitHub@desc.com',
         to: 'user@appsus.com',
     },
@@ -87,3 +101,11 @@ const criteria = {
     isStared: true,
     lables: ['important', 'romantic'],
 };
+
+function query() {
+    return storageService.query(EMAIL_KEY).then((email) => {
+        if (!email || !email.length) {
+            return storageService.put(EMAIL_KEY, emails);
+        } else return email[0];
+    });
+}
