@@ -1,0 +1,16 @@
+.note-filter{
+    display: flex;
+    flex-direction: column;
+    width: 20vw;
+    gap: 20px;
+}
+.filter-notes{
+    padding: 10px;
+    border-radius: 25px;
+
+}
+
+.filter-notes:hover{
+    cursor: pointer;
+    background-color: #feefc3;
+}

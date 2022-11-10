@@ -3,19 +3,23 @@ import {noteService} from '../services/note.service.js'
 import noteDetails from './note-details.cmp.js'
 import noteList from '../cmps/note-list.cmp.js'
 import noteAdd from '../cmps/note-add.cmp.js'
+import noteFilter from '../cmps/note-filter.cmp.js'
 
 
 export default {
     template: `
         <section class="note-index">
-            <note-add @add="addNote"/>
-            <note-list
-                @toggle="togglePin"
-                @remove="removeNote" 
-                v-if="notes" 
-                :pinnedNotes="pinnedNotesToShow"
-                :unPinnedNotes="unPinnedNotesToShow"/>
-            <note-details />
+            <note-filter/>
+            <div class="note-container">
+                <note-add @add="addNote"/>
+                <note-list
+                    @toggle="togglePin"
+                    @remove="removeNote" 
+                    v-if="notes" 
+                    :pinnedNotes="pinnedNotesToShow"
+                    :unPinnedNotes="unPinnedNotesToShow"/>
+                <note-details />
+            </div>
         </section>
     `,
     data(){
@@ -47,9 +51,9 @@ export default {
                 else this.unPinnedNotes.push(note)
             });
         },
-        addNote(txt){
-            console.log(txt);
-            noteService.addNote(txt)
+        addNote(noteInfo){
+            console.log(noteInfo);
+            noteService.addNote(noteInfo)
                 .then(note=>{
                     console.log('bef',this.notes);
                     this.notes.push(note)
@@ -78,5 +82,6 @@ export default {
 		noteList,
         noteDetails,
         noteAdd,
+        noteFilter,
 	},
 };

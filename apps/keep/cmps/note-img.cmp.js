@@ -2,7 +2,6 @@ export default {
     props:['note'],
     template: `
         <section class="note note-img" :style="noteStyle">
-            <h3>{{ note.info.title }}</h3>
             <img :src="note.info.url" />
             <i :style="{color:'black'}" title="Unpin" @click="togglePin(note.id)" class="fa-solid fa-thumbtack" v-if="note.isPinned"></i>
             <i :style="{color:'lightgray'}" title="Pin" @click="togglePin(note.id)" class="fa-solid fa-thumbtack" v-else></i>
@@ -24,7 +23,7 @@ export default {
         },
         noteStyle(){
             return {
-                backgroundColor: this.note.style.backgroundColor,
+                backgroundImage: 'url('+this.note.info.url+')',
             }
         },
 	},

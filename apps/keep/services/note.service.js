@@ -63,8 +63,8 @@ function togglePin(noteId){
         })
 }
 
-function addNote(txt){
-    const note = _createTxtNote(txt)
+function addNote(noteInfo){
+    const note = _createTxtNote(noteInfo)
     return storageService.post(NOTES_KEY,note)
 }
 
@@ -76,11 +76,11 @@ function _save(entityType, entities) {
     localStorage.setItem(entityType, JSON.stringify(entities))
 }
 
-function _createTxtNote(txt){
+function _createTxtNote(noteInfo){
     return {
         type: "note-txt", 
         isPinned: false, 
-        info: { txt,},
-        style: { backgroundColor: "#FFFFFF" }
+        info: { txt:noteInfo.txt},
+        style: { backgroundColor: noteInfo.backgroundColor }
     }
 }

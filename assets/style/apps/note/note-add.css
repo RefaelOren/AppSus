@@ -1,0 +1,57 @@
+
+.note-add{
+    display: flex;
+    align-items: center;
+    width: max-content;
+    justify-content: space-between;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 10px;
+    border: solid rgb(9, 8, 8,30%);
+    box-shadow:1px 1px 0 rgb(0 0 0 / 15%),0 -1px 0 rgb(0 0 0 / 10%);
+    border-width:1px 1px 1px 2px;
+    padding: 10px;
+}
+
+.note-add button{
+    color: black;
+    border: none;
+    background-color: inherit;
+}
+
+.add-form{
+    display: flex;
+    align-items: center;
+}
+
+.add-form input{
+    border: none;
+    background-color: inherit;
+}
+
+.color-container{
+    display: flex;
+    flex-direction: column;
+}
+
+.note-add .color-picker{
+    width: max-content;
+    display: flex;
+    padding: 10px;
+    border: 1px solid black;
+    border-radius: 25px;
+    position: fixed;
+    margin-top: 40px;
+    left: 40%;
+    z-index: 10;
+    background-color: gray;
+}
+.note-add .color{
+    margin: 0px 5px;
+    padding: 5px;
+    border: 1px solid black;
+    border-radius: 50px;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+}

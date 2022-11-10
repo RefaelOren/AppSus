@@ -6,8 +6,12 @@ export default {
     props: ['pinnedNotes', 'unPinnedNotes'],
     template: `
         <section class="note-list">
-            <ul>
+
+            <div class="pine">
                 <h3>pinned</h3>
+            </div>
+
+            <ul>
                 <li v-for="note in pinnedNotes" :key="note.id">
                     <!-- <note-preview :note="note"/> -->
                 <component
@@ -18,8 +22,12 @@ export default {
                 </component>
             </li>
         </ul>
-        <ul>
+
+        <div class="pine">
             <h3>unPinned</h3>
+        </div>
+
+        <ul>
             <li v-for="note in unPinnedNotes" :key="note.id">
                 <!-- <note-preview :note="note"/> -->
                 <component
