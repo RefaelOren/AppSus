@@ -30,7 +30,7 @@
     cursor: pointer;
 }
 
-i{
+.note i{
     padding: 7px;
     background-color: transparent;
     align-self:flex-end;
@@ -39,7 +39,7 @@ i{
     cursor:default;
 }
 
-i:hover, .remove-btn:hover{
+.note i:hover, .remove-btn:hover{
     border: 1px solid transparent;
     background-color: rgba(43, 39, 39, 0.155);
     border-radius: 100px;
@@ -47,6 +47,7 @@ i:hover, .remove-btn:hover{
 
 .remove-btn{
     font-size: large;
+    color: black;
     font-weight: bold;
     align-self:flex-end;
     opacity: 0;
