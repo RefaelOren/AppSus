@@ -19,6 +19,10 @@
     padding: 5px;
 }
 
+.email-folder-list div {
+    transition: 0.5s;
+}
+
 .email-folder-list div:hover {
     background-color: lightgray;
     border-radius: 10px;

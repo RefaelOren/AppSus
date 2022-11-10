@@ -2,9 +2,11 @@ export default {
     template: `
         <header class="app-header">
             <div className="logo">
-                 <h1>AppSus</h1>
-                <img src="assets/img/logo.png" alt="" />
-            </div>
+                <h1>AppSus</h1>
+                <router-link  to="/">
+                    <img src="assets/img/logo.png" alt="" />
+                </router-link>
+                </div>
             <nav class="links">
                 <router-link to="/">Home</router-link>
                 <router-link to="/about">About</router-link>

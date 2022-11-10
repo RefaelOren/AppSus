@@ -1,11 +1,12 @@
 .app-header {
     background-color: var(--clr5);
     color: var(--secondary-clr1);
-    padding: 1em;
+    width: 90%;
+    height: 12vh;
+    margin: 0 auto;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 50px;
 }
 
 .app-header h1 {
@@ -20,15 +21,27 @@
 
 .app-header img {
     width: 150px;
+    max-height: 12vh;
 }
 
 .app-header .links {
+    width: 300px;
     display: flex;
+    justify-content: space-evenly;
+    align-items: center;
 }
 
-@media (max-width: 720px) {
-    .app-header {
-        background-color: var(--clr3);
-        color: var(--secondary-clr2);
-    }
+.links a {
+    display: grid;
+    place-content: center;
+    transition: 0.5s;
+}
+
+.links .router-link-exact-active {
+    font-size: 20px;
+    color: rgb(134, 20, 20);
+}
+
+.links .router-link-exact-active:hover {
+    color: rgb(84, 12, 12);
 }

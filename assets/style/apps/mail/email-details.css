@@ -1,0 +1,23 @@
+.email-details {
+    width: 100%;
+    height: 80vh;
+}
+
+.email-details .section-center {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.email-details i {
+    color: black;
+    font-size: 1.2rem;
+    border: none;
+
+    padding-right: 20px;
+    margin-bottom: 20px;
+}
+
+.email-details h1 {
+    font-size: 2rem;
+}

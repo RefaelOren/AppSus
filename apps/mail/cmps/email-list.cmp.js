@@ -8,8 +8,8 @@ export default {
          <section class="email-list">
              <div v-if="emailsToDisplay.length">
                  <div  v-for="email in  emailsToDisplay" :key="email.id" >
-                     <email-preview :email="email" /> 
-                    </div>
+                     <email-preview  :email="email" /> 
+                 </div>
             </div>
         </section>
     `,
@@ -30,7 +30,6 @@ export default {
     },
 
     created() {
-        console.log('hey');
         mailService.query().then((emails) => {
             this.emails = emails;
         });
@@ -44,7 +43,6 @@ export default {
 
     computed: {
         emailsToDisplay() {
-            console.log(this.filterBy);
             const regex = new RegExp(this.filterBy.txt, 'i');
             let emails = this.emails.filter((email) =>
                 regex.test(email.subject)
