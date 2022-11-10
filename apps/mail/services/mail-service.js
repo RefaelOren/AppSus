@@ -5,6 +5,7 @@ const EMAIL_KEY = 'emailDB';
 
 export const mailService = {
     query,
+    getById,
 };
 
 const loggedinUser = {
@@ -21,6 +22,7 @@ const emails = [
         sentAt: Date.now() - 100000000,
         from: 'momo@momo.com',
         to: 'user@appsus.com',
+        isStarred: true,
     },
     {
         id: 'e102',
@@ -31,6 +33,7 @@ const emails = [
         sentAt: Date.now() - 200000000,
         from: 'landowner@momo.com',
         to: 'user@appsus.com',
+        isStarred: false,
     },
     {
         id: 'e103',
@@ -41,6 +44,7 @@ const emails = [
         sentAt: Date.now() - 300000000,
         from: 'popo@momo.com',
         to: 'user@appsus.com',
+        isStarred: false,
     },
     {
         id: 'e104',
@@ -51,6 +55,7 @@ const emails = [
         sentAt: Date.now() - 400000000,
         from: 'linkedin@app.com',
         to: 'user@appsus.com',
+        isStarred: false,
     },
     {
         id: 'e105',
@@ -61,6 +66,7 @@ const emails = [
         sentAt: Date.now() - 500000000,
         from: 'gov-il@gov.com',
         to: 'user@appsus.com',
+        isStarred: false,
     },
     {
         id: 'e106',
@@ -71,6 +77,7 @@ const emails = [
         sentAt: Date.now() - 600000000,
         from: 'kuki@kuki.com',
         to: 'user@appsus.com',
+        isStarred: true,
     },
     {
         id: 'e107',
@@ -81,6 +88,7 @@ const emails = [
         sentAt: Date.now() - 700000000,
         from: 'facebook@app.com',
         to: 'user@appsus.com',
+        isStarred: false,
     },
     {
         id: 'e108',
@@ -91,6 +99,7 @@ const emails = [
         sentAt: Date.now() - 800000000,
         from: 'gitHub@desc.com',
         to: 'user@appsus.com',
+        isStarred: false,
     },
     {
         id: 'e109',
@@ -101,6 +110,7 @@ const emails = [
         sentAt: Date.now() - 100000000,
         from: 'momo@momo.com',
         to: 'user@appsus.com',
+        isStarred: false,
     },
     {
         id: 'e110',
@@ -111,6 +121,7 @@ const emails = [
         sentAt: Date.now() - 200000000,
         from: 'landowner@momo.com',
         to: 'user@appsus.com',
+        isStarred: false,
     },
     {
         id: 'e112',
@@ -121,6 +132,7 @@ const emails = [
         sentAt: Date.now() - 300000000,
         from: 'popo@momo.com',
         to: 'user@appsus.com',
+        isStarred: false,
     },
     {
         id: 'e113',
@@ -131,6 +143,7 @@ const emails = [
         sentAt: Date.now() - 400000000,
         from: 'linkedin@app.com',
         to: 'user@appsus.com',
+        isStarred: true,
     },
     {
         id: 'e114',
@@ -141,6 +154,7 @@ const emails = [
         sentAt: Date.now() - 500000000,
         from: 'gov-il@gov.com',
         to: 'user@appsus.com',
+        isStarred: false,
     },
     {
         id: 'e115',
@@ -151,6 +165,7 @@ const emails = [
         sentAt: Date.now() - 600000000,
         from: 'kuki@kuki.com',
         to: 'user@appsus.com',
+        isStarred: false,
     },
     {
         id: 'e116',
@@ -161,6 +176,7 @@ const emails = [
         sentAt: Date.now() - 700000000,
         from: 'facebook@app.com',
         to: 'user@appsus.com',
+        isStarred: false,
     },
     {
         id: 'e117',
@@ -171,6 +187,7 @@ const emails = [
         sentAt: Date.now() - 800000000,
         from: 'gitHub@desc.com',
         to: 'user@appsus.com',
+        isStarred: false,
     },
 ];
 
@@ -188,4 +205,9 @@ function query() {
             return storageService.put(EMAIL_KEY, emails);
         } else return email[0];
     });
+}
+
+function getById(emailId) {
+    console.log(emailId);
+    return storageService.get(EMAIL_KEY, emailId);
 }

@@ -1,0 +1,9 @@
+.app-footer {
+    height: 8vh;
+    width: 90%;
+    margin: 0 auto;
+    padding-top: 10px;
+    color: var(--secondary-clr1);
+    display: grid;
+    place-content: center;
+}

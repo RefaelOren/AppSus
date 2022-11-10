@@ -1,5 +1,7 @@
 .email-filter {
-    padding: 20px 50px;
+    width: 90%;
+    margin: 0 auto;
+    padding: 20px 0;
     display: flex;
     gap: 15px;
     justify-content: space-between;

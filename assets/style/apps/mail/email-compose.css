@@ -31,3 +31,39 @@
     font-family: 'Google Sans', Roboto, RobotoDraft, Helvetica, Arial,
         sans-serif;
 }
+
+.compose {
+    position: absolute;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    left: 15%;
+    top: 30%;
+    width: 70%;
+    background-color: rgb(214, 223, 241);
+    border-radius: 10px;
+    box-shadow: 0px 3px 16px 9px rgba(0, 0, 0, 0.71);
+}
+
+.compose input {
+    border-radius: 5px;
+    border: none;
+}
+
+.compose .msg {
+    padding-bottom: 120px;
+}
+
+.compose div {
+    cursor: pointer;
+    font-size: 1rem;
+    align-self: flex-end;
+}
+
+.send-btn {
+    padding: 5px 10px;
+    background-color: blue;
+    color: white;
+    border-radius: 10px;
+}
