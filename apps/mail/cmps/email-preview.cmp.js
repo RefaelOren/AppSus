@@ -1,7 +1,7 @@
 export default {
     props: ['email'],
     template: `
-      <section class="email-preview" >
+      <section class="email-preview" :class="{'bg-blue':email.isRead}">
             <div class="checkbox">
                  <input type="checkbox" />
                <i class="fa-solid fa-star" :class="{yellow:email.isStarred,grey:!email.isStarred}" @click="email.isStarred=!email.isStarred"></i>
@@ -11,7 +11,7 @@ export default {
                     <div :class="{bold:!email.isRead}">{{sendFrom}}</div>
                 </div>
                 <div className="info" >
-                    <div :class="{bold:!email.isRead}">{{subject}}</div>
+                    <div class="subject" :class="{bold:!email.isRead}">{{subject}}</div>
                     <div class="date" :class="{bold:!email.isRead}">{{date}}</div>
                 </div>
             </router-link>
@@ -28,7 +28,7 @@ export default {
             return new Date(this.email.sentAt).toDateString().substring(4, 10);
         },
         subject() {
-            return this.email.subject.substring(0, 70) + '...';
+            return this.email.subject.substring(0, 80) + '...';
         },
     },
 };

@@ -20,12 +20,9 @@
 }
 
 .email-filter .txt-search {
-    background-color: #dbe4f2;
+    background-color: rgb(234, 241, 251);
     border: none;
     border-radius: 10px;
     width: 100%;
     padding-inline-start: 50px;
-}
-
-.email-filter .filter-box label {
 }

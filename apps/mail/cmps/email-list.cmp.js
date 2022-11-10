@@ -44,9 +44,7 @@ export default {
     computed: {
         emailsToDisplay() {
             const regex = new RegExp(this.filterBy.txt, 'i');
-            let emails = this.emails.filter((email) =>
-                regex.test(email.subject)
-            );
+            let emails = this.emails.filter((email) => regex.test(email.from));
             if (this.filterBy.isRead === 'read') {
                 emails = emails.filter((email) => email.isRead);
             } else if (this.filterBy.isRead === 'unRead') {
