@@ -1,16 +1,21 @@
 export default {
     props: ['email'],
     template: `
-    
-
-                <td>
-                  <input type="checkbox" />
-                  ⭐
-                </td>
-                <td :class="{bold:!email.isRead}">{{sendFrom}}</td>
-                <td :class="{bold:!email.isRead}">{{subject}}</td>
-                <td :class="{bold:!email.isRead}">{{date}}</td>
-                 
+      <section class="email-preview">
+            <div class="checkbox">
+                 <input type="checkbox" />
+                ⭐
+            </div>
+            <router-link class="email-link" :to="'/email/details/' + email.id">
+                <div className="sent-from">
+                    <div :class="{bold:!email.isRead}">{{sendFrom}}</div>
+                </div>
+                <div className="info">
+                    <div :class="{bold:!email.isRead}">{{subject}}</div>
+                    <div class="date" :class="{bold:!email.isRead}">{{date}}</div>
+                </div>
+            </router-link>
+     </section>
                 `,
 
     computed: {

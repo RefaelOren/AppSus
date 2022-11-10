@@ -1,0 +1,23 @@
+.mail-compose {
+    position: absolute;
+    top: 70px;
+    left: 5px;
+    background-color: #c2e7ff;
+    width: 40px;
+    height: 40px;
+    display: grid;
+    place-content: center;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.mail-compose:hover {
+    width: 200px;
+    box-shadow: 0px 3px 16px -1px rgba(0, 0, 0, 0.71);
+}
+
+.mail-compose:hover i::after {
+    content: 'Compose';
+    padding-inline-start: 30px;
+}

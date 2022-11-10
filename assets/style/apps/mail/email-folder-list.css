@@ -1,3 +1,47 @@
 .email-folder-list {
+    padding: 10px;
     position: absolute;
+    top: 120px;
+    width: 45px;
+    height: 200px;
+    background-color: var(--clr6);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    gap: 10px;
+    font-size: 16px;
+    border-radius: 10px;
+    transition: 0.5s;
+    cursor: pointer;
+}
+
+.email-folder-list i {
+    padding: 5px;
+}
+
+.email-folder-list div:hover {
+    background-color: lightgray;
+    border-radius: 10px;
+}
+
+.email-folder-list:hover {
+    width: 200px;
+    box-shadow: 0px 3px 16px -1px rgba(0, 0, 0, 0.71);
+}
+
+.email-folder-list:hover .inbox::after {
+    content: 'Inbox';
+    padding-inline-start: 52px;
+}
+.email-folder-list:hover .starred::after {
+    content: 'Starred';
+    padding-inline-start: 50px;
+}
+.email-folder-list:hover .sent::after {
+    content: 'Sent';
+    padding-inline-start: 52px;
+}
+.email-folder-list:hover .draft::after {
+    content: 'Draft';
+    padding-inline-start: 55px;
 }
