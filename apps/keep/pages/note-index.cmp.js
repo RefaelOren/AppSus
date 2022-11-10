@@ -2,14 +2,16 @@ import {noteService} from '../services/note.service.js'
 
 import noteDetails from './note-details.cmp.js'
 import noteList from '../cmps/note-list.cmp.js'
+import noteAdd from '../cmps/note-add.cmp.js'
 
 
 export default {
     template: `
         <section class="note-index">
-            <h1>note index</h1>
+            <note-add @add="addNote"/>
             <note-list
-                @toggle="togglePin" 
+                @toggle="togglePin"
+                @remove="removeNote" 
                 v-if="notes" 
                 :pinnedNotes="pinnedNotesToShow"
                 :unPinnedNotes="unPinnedNotesToShow"/>
@@ -44,6 +46,23 @@ export default {
                 if(note.isPinned) this.pinnedNotes.push(note)
                 else this.unPinnedNotes.push(note)
             });
+        },
+        addNote(txt){
+            console.log(txt);
+            noteService.addNote(txt)
+                .then(note=>{
+                    console.log('bef',this.notes);
+                    this.notes.push(note)
+                    console.log('aft',this.notes);
+                    this.sortNotes()
+                })
+        },
+        removeNote(id){
+            // console.log(id);
+            noteService.removeNote(id)
+            const idx = this.notes.findIndex(note => note.id === id)
+            this.notes.splice(idx, 1)
+            this.sortNotes()
         }
       
     },
@@ -58,5 +77,6 @@ export default {
     components: {
 		noteList,
         noteDetails,
+        noteAdd,
 	},
 };

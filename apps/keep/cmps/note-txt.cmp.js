@@ -3,22 +3,18 @@ export default {
     template: `
         <section class="note note-txt" :style="noteStyle">
             <h2>{{ note.info.txt }}</h2>
-            <button class="btn-pin" @click="togglePin(note.id)" >
-                <!-- <img src="data:image/svg+xml;base64,PHN2ZyB4bW
-                xucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdp
-                ZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwID
-                I0IDI0Ij4KICA8cGF0aCBmaWxsPSJub25lIiBkPSJNMCAw
-                aDI0djI0SDB6Ii8+CiAgPHBhdGggZmlsbD0iIzAwMCIgZD
-                0iTTE3IDRhMiAyIDAgMCAwLTItMkg5Yy0xLjEgMC0yIC45
-                LTIgMnY3bC0yIDN2Mmg2djVsMSAxIDEtMXYtNWg2di0ybC
-                0yLTNWNHoiLz4KPC9zdmc+Cg=="> -->
-            </button>
+            <i :style="{color:'black'}" title="Unpin" @click="togglePin(note.id)" class="fa-solid fa-thumbtack" v-if="note.isPinned"></i>
+            <i :style="{color:'lightgray'}" title="Pin" @click="togglePin(note.id)" class="fa-solid fa-thumbtack" v-else></i>
+            <button class="remove-btn" @click="remove(note.id)">X</button>
         </section>
     `,
     methods: {
         togglePin(id){
             console.log(id);
             this.$emit('toggle',id)
+        },
+        remove(id){
+            this.$emit('remove',id)
         }, 
     },
     computed: {

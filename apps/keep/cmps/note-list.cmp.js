@@ -11,7 +11,8 @@ export default {
                 <li v-for="note in pinnedNotes" :key="note.id">
                     <!-- <note-preview :note="note"/> -->
                 <component
-                    @click="togglePin(note.id)"
+                    @toggle="togglePin(note.id)"
+                    @remove="remove(note.id)"
                     :is="note.type" 
                     :note="note">    
                 </component>
@@ -23,6 +24,7 @@ export default {
                 <!-- <note-preview :note="note"/> -->
                 <component
                     @toggle="togglePin(note.id)"
+                    @remove="remove(note.id)"
                     :is="note.type" 
                     :note="note">    
                 </component>
@@ -37,6 +39,9 @@ export default {
         togglePin(id) {
             console.log(id);
             this.$emit('toggle', id);
+        },
+        remove(id){
+            this.$emit('remove',id)
         },
     },
     computed: {},

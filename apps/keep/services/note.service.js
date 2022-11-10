@@ -4,6 +4,8 @@ import {utilService} from '../../../services/util.service.js';
 export const noteService={
     query,
     togglePin,
+    addNote,
+    removeNote,
 }
 const NOTES_KEY = 'notesDB'
 
@@ -61,6 +63,24 @@ function togglePin(noteId){
         })
 }
 
+function addNote(txt){
+    const note = _createTxtNote(txt)
+    return storageService.post(NOTES_KEY,note)
+}
+
+function removeNote(id){
+    return storageService.remove(NOTES_KEY,id)
+}
+
 function _save(entityType, entities) {
     localStorage.setItem(entityType, JSON.stringify(entities))
+}
+
+function _createTxtNote(txt){
+    return {
+        type: "note-txt", 
+        isPinned: false, 
+        info: { txt,},
+        style: { backgroundColor: "#FFFFFF" }
+    }
 }
