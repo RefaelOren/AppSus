@@ -1,3 +1,39 @@
 .bold {
     font-weight: 900;
 }
+.email-preview {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px;
+    transition: 0.5s;
+}
+
+.email-preview:hover {
+    box-shadow: 0px 3px 8px -1px rgba(0, 0, 0, 0.71);
+}
+
+.email-preview .checkbox {
+    flex-basis: 6%;
+}
+
+.email-preview .email-link {
+    display: flex;
+    flex-basis: 94%;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.sent-from {
+    flex-basis: 10%;
+}
+
+.email-link .info {
+    display: flex;
+    flex-basis: 90%;
+    justify-content: space-between;
+}
+
+.info .date {
+    font-size: 12px;
+}
