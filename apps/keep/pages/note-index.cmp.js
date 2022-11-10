@@ -14,7 +14,8 @@ export default {
                 <note-add @add="addNote"/>
                 <note-list
                     @toggle="togglePin"
-                    @remove="removeNote" 
+                    @remove="removeNote"
+                    @changecolor="changecolor" 
                     v-if="notes" 
                     :pinnedNotes="pinnedNotesToShow"
                     :unPinnedNotes="unPinnedNotesToShow"/>
@@ -50,6 +51,11 @@ export default {
                 if(note.isPinned) this.pinnedNotes.push(note)
                 else this.unPinnedNotes.push(note)
             });
+        },
+        changecolor(changeNote){
+            const idx = this.notes.findIndex(note => note.id === changeNote.id)
+            this.notes[idx].style.backgroundColor = changeNote.bgColor
+            noteService.updateNote(this.notes[idx])
         },
         addNote(noteInfo){
             console.log(noteInfo);

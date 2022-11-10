@@ -6,6 +6,7 @@ export const noteService={
     togglePin,
     addNote,
     removeNote,
+    updateNote,
 }
 const NOTES_KEY = 'notesDB'
 
@@ -70,6 +71,10 @@ function addNote(noteInfo){
 
 function removeNote(id){
     return storageService.remove(NOTES_KEY,id)
+}
+
+function updateNote(note){
+    return storageService.put(NOTES_KEY,note)
 }
 
 function _save(entityType, entities) {

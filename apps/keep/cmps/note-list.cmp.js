@@ -16,6 +16,7 @@ export default {
                     <!-- <note-preview :note="note"/> -->
                 <component
                     @toggle="togglePin(note.id)"
+                    @color="changecolor"
                     @remove="remove(note.id)"
                     :is="note.type" 
                     :note="note">    
@@ -45,11 +46,13 @@ export default {
     },
     methods: {
         togglePin(id) {
-            console.log(id);
             this.$emit('toggle', id);
         },
         remove(id){
             this.$emit('remove',id)
+        },
+        changecolor(note){
+            this.$emit('changecolor',note)
         },
     },
     computed: {},

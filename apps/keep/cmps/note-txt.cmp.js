@@ -37,6 +37,7 @@ export default {
         chooseBgColor(color){
             this.bgColor = color
             this.toggleColor()
+            this.$emit('color',{bgColor:this.bgColor,id:this.note.id})
         },
         toggleColor(){
             this.iscolor = !this.iscolor

@@ -5,7 +5,9 @@ export default {
             <img :src="note.info.url" />
             <i :style="{color:'black'}" title="Unpin" @click="togglePin(note.id)" class="fa-solid fa-thumbtack" v-if="note.isPinned"></i>
             <i :style="{color:'lightgray'}" title="Pin" @click="togglePin(note.id)" class="fa-solid fa-thumbtack" v-else></i>
-            <button class="remove-btn" @click="remove(note.id)">X</button>
+            <div class="edit-container">
+                <button class="remove-btn" @click="remove(note.id)">X</button>
+            </div>
         </section>
     `,
     methods: {

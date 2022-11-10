@@ -1,9 +1,12 @@
 .note-list ul{
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    /* column-count: 3;
+    column-gap: 40px;
+    column-rule: 1px solid lightblue; */
     gap: 10px;
     list-style-type: none;
-    padding: 10px;
+    padding: 0;
 }
 
 .note-list ul li {
@@ -12,6 +15,7 @@
 }
 
 .note-img{
+    
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -30,15 +34,21 @@
     color: black;
     flex-direction: column;
     border-radius: 10px;
+    border-color: transparent;
 }
 
 .note:hover {
     opacity: 1;
     cursor: pointer;
     filter: brightness(95%);
+    border-color: black;
 }
 
 .note:hover i,.note:hover .remove-btn{
+    opacity: 1;
+    cursor: pointer;
+}
+.note:focus i,.note:focus.remove-btn{
     opacity: 1;
     cursor: pointer;
 }
@@ -56,10 +66,10 @@
 
 .edit-container{
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     opacity: 0;
     background-color: rgba(43, 39, 39, 0.155);
-    border-radius: 100px;
+    border-radius: 50px;
 }
 
 .note:hover .edit-container ,.note:focus .edit-container{
@@ -80,6 +90,7 @@
     padding: 0;
     background-color: transparent;
     border: none;
+    -webkit-text-stroke: 1px white;
 } 
 
 .note .color-container{
@@ -105,4 +116,8 @@
     width: 30px;
     height: 30px;
     cursor: pointer;
+}
+
+.note .toggle-color{
+    color: white;
 }

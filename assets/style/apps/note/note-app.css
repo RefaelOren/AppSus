@@ -1,11 +1,17 @@
 .note-index{
+    height: 80vh;
     display: flex;
     flex-direction: row;
-    width: 100vw;
+    width: 100%;
+    overflow-y: scroll;
+    padding-top: 10px;
 }
 
 .note-container{
+    padding-top: 10px;
+    margin:0 auto;
     display: flex;
     flex-direction: column;
-    width: 80vw;
+    width: 80%;
+    height: 75vh;
 }
