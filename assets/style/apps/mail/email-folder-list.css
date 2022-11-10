@@ -35,6 +35,7 @@
 }
 .email-folder-list:hover .starred::after {
     content: 'Starred';
+    font-family: 'Courier New', Courier, monospace;
     padding-inline-start: 50px;
 }
 .email-folder-list:hover .sent::after {

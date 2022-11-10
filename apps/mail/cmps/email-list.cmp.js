@@ -4,14 +4,14 @@ import emailFilter from './email-filter.cmp.js';
 
 export default {
     template: `
-         <email-filter @filter="filter" />     
+         <email-filter @filter="filter" />
          <section class="email-list">
              <div v-if="emailsToDisplay.length">
-                   <div  v-for="email in  emailsToDisplay" :key="email.id" >
+                 <div  v-for="email in  emailsToDisplay" :key="email.id" >
                      <email-preview :email="email" /> 
-                   </div>
+                    </div>
             </div>
-       </section>
+        </section>
     `,
 
     data() {
