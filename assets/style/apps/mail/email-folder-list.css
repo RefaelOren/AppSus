@@ -1,5 +1,5 @@
 .email-folder-list {
-    padding: 10px;
+    padding: 15px;
     position: absolute;
     top: 120px;
     width: 45px;
@@ -31,18 +31,25 @@
 
 .email-folder-list:hover .inbox::after {
     content: 'Inbox';
+    font-family: 'Google Sans', Roboto, RobotoDraft, Helvetica, Arial,
+        sans-serif;
     padding-inline-start: 52px;
 }
 .email-folder-list:hover .starred::after {
+    font-family: 'Google Sans', Roboto, RobotoDraft, Helvetica, Arial,
+        sans-serif;
     content: 'Starred';
-    font-family: 'Courier New', Courier, monospace;
     padding-inline-start: 50px;
 }
 .email-folder-list:hover .sent::after {
+    font-family: 'Google Sans', Roboto, RobotoDraft, Helvetica, Arial,
+        sans-serif;
     content: 'Sent';
     padding-inline-start: 52px;
 }
 .email-folder-list:hover .draft::after {
+    font-family: 'Google Sans', Roboto, RobotoDraft, Helvetica, Arial,
+        sans-serif;
     content: 'Draft';
     padding-inline-start: 55px;
 }

@@ -11,6 +11,7 @@
 
 .email-preview:hover {
     box-shadow: 0px 3px 8px -1px rgba(0, 0, 0, 0.71);
+    border-radius: 5px;
 }
 
 .email-preview .checkbox {

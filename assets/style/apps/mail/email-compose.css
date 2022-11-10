@@ -17,7 +17,17 @@
     box-shadow: 0px 3px 16px -1px rgba(0, 0, 0, 0.71);
 }
 
-.mail-compose:hover i::after {
+.mail-compose span {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.mail-compose:hover span::after {
     content: 'Compose';
     padding-inline-start: 30px;
+    display: grid;
+    place-content: center;
+    font-family: 'Google Sans', Roboto, RobotoDraft, Helvetica, Arial,
+        sans-serif;
 }
