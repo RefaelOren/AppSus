@@ -1,4 +1,28 @@
 .home-page {
     height: 80vh;
     background: url('../../img/hero.jpg') center/cover no-repeat;
+    text-align: center;
+}
+
+.home-page h1 {
+    font-family: 'Island Moments', cursive;
+    font-size: 3rem;
+    padding-top: 40px;
+}
+
+.home-page button {
+    font-family: 'Island Moments', cursive;
+    font-size: 2.5rem;
+    font-weight: 600;
+    color: black;
+    background-color: transparent;
+    border-radius: 5px;
+    padding: 0.5rem 3rem;
+    border: 2px solid rgb(204, 197, 197);
+    transition: 0.5s;
+}
+
+.home-page button:hover {
+    transform: scale(1.2);
+    background-color: rgba(221, 41, 41, 0.15);
 }

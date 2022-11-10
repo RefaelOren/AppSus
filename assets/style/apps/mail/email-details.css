@@ -4,9 +4,11 @@
 }
 
 .email-details .section-center {
-    width: 80%;
+    width: 60%;
     margin: 0 auto;
     padding: 20px;
+    display: flex;
+    flex-direction: column;
 }
 
 .email-details i {

@@ -16,8 +16,8 @@ const emails = [
     {
         id: 'e101',
         subject:
-            'Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias facere, veritatis ad vitae dolore aliquam vel totam fuga quos temporibus.!',
-        body: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias facere, veritatis ad vitae dolore aliquam vel totam fuga quos temporibus.Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias facere, veritatis ad vitae dolore aliquam vel totam fuga quos temporibus.',
+            'This email was intended for Refael Oren (Full stack Developer ✔️ Front end Developer ',
+        body: '2022 LinkedIn Ireland Unlimited Company, Wilton Plaza, Wilton Place, Dublin 2. LinkedIn is a registered business name of LinkedIn Ireland Unlimited Company. LinkedIn and the LinkedIn logo are registered trademarks of LinkedIn.',
         isRead: false,
         sentAt: Date.now() - 100000000,
         from: 'momo@momo.com',
@@ -27,7 +27,7 @@ const emails = [
     {
         id: 'e102',
         subject:
-            'Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias facere, veritatis ad vitae dolore aliquam vel totam fuga quos temporibus.',
+            'Which engineering field should a college student stay away from because it will be de...? Which engineering field should a college student stay away from because it will be de...?',
         body: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias facere, veritatis ad vitae dolore aliquam vel totam fuga quos temporibus.Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias facere, veritatis ad vitae dolore aliquam vel totam fuga quos temporibus.',
         isRead: true,
         sentAt: Date.now() - 200000000,
@@ -37,8 +37,7 @@ const emails = [
     },
     {
         id: 'e103',
-        subject:
-            'Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias facere, veritatis ad vitae dolore aliquam vel totam fuga quos temporibus.',
+        subject: `See Avivs and other peoples connections, experience, and more See Aviv's and other people's connections, experience, and more`,
         body: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias facere, veritatis ad vitae dolore aliquam vel totam fuga quos temporiLorem ipsum dolor sit amet consectetur adipisicing elit. Alias facere, veritatis ad vitae dolore aliquam vel totam fuga quos temporibus.bus.',
         isRead: false,
         sentAt: Date.now() - 300000000,
@@ -48,8 +47,7 @@ const emails = [
     },
     {
         id: 'e104',
-        subject:
-            'Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias facere, veritatis ad vitae dolore aliquam vel totam fuga quos temporibus.',
+        subject: `The free trial for's team has ended. Please log in and purchase a subscription within 14 days to keep working on your design projects. The free trial for רפי אורן's team has ended. Please log in and purchase a subscription within 14 days to keep working on your design projects.`,
         body: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias facere, veritatis ad vitae dolore aliquam vel totam fuga quos temporibus.Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias facere, veritatis ad vitae dolore aliquam vel totam fuga quos temporibus.',
         isRead: true,
         sentAt: Date.now() - 400000000,
@@ -60,7 +58,7 @@ const emails = [
     {
         id: 'e105',
         subject:
-            'Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias facere, veritatis ad vitae dolore aliquam vel totam fuga quos temporibus.',
+            'Now people using your account can transfer a profile including recommendations, viewing history, My List, saved games, settings and more to their own membership that they pay for. We will never transfer your payment',
         body: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias facere, veritatis ad vitae dolore aliquam vel totam fuga quos temporibus.Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias facere, veritatis ad vitae dolore aliquam vel totam fuga quos temporibus.',
         isRead: false,
         sentAt: Date.now() - 500000000,
@@ -71,7 +69,7 @@ const emails = [
     {
         id: 'e106',
         subject:
-            'Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias facere, veritatis ad vitae dolore aliquam vel totam fuga quos temporibus.',
+            'Great news! Profile Transfer is now fully enabled and available for other people using your account.Great news! Profile Transfer is now fully enabled and available for other people using your account.',
         body: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias facere, veritatis ad vitae dolore aliquam vel totam fuga quos temporibus.Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias facere, veritatis ad vitae dolore aliquam vel totam fuga quos temporibus.',
         isRead: true,
         sentAt: Date.now() - 600000000,
@@ -82,7 +80,7 @@ const emails = [
     {
         id: 'e107',
         subject:
-            'Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias facere, veritatis ad vitae dolore aliquam vel totam fuga quos temporibus.',
+            'You are always in control of your account. Click here to turn off Profile Transfer, or you can also turn off Profile Transfer on the web by signing in to your account..',
         body: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias facere, veritatis ad vitae dolore aliquam vel totam fuga quos temporibus.Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias facere, veritatis ad vitae dolore aliquam vel totam fuga quos temporibus.',
         isRead: true,
         sentAt: Date.now() - 700000000,
@@ -93,7 +91,7 @@ const emails = [
     {
         id: 'e108',
         subject:
-            'Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias facere, veritatis ad vitae dolore aliquam vel totam fuga quos temporibus.',
+            'We have created a unique set of editing and collaboration tools that seamlessly integrate with popular design software and develop',
         body: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias facere, veritatis ad vitae dolore aliquam vel totam fuga quos temporibus.Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias facere, veritatis ad vitae dolore aliquam vel totam fuga quos temporibus.',
         isRead: false,
         sentAt: Date.now() - 800000000,
@@ -104,7 +102,7 @@ const emails = [
     {
         id: 'e109',
         subject:
-            'Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias facere, veritatis ad vitae dolore aliquam vel totam fuga quos temporibus.!',
+            'Want to make your Prototypes look like the final product? Just export your Lottie animations from your LottieFiles account to your Figma or Adobe XD using its respective plugins.',
         body: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias facere, veritatis ad vitae dolore aliquam vel totam fuga quos temporibus.Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias facere, veritatis ad vitae dolore aliquam vel totam fuga quos temporibus.',
         isRead: false,
         sentAt: Date.now() - 100000000,
@@ -179,7 +177,7 @@ const emails = [
         isStarred: false,
     },
     {
-        id: 'e117',
+        id: 'e118',
         subject:
             'Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias facere, veritatis ad vitae dolore aliquam vel totam fuga quos temporibus.',
         body: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias facere, veritatis ad vitae dolore aliquam vel totam fuga quos temporibus.Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias facere, veritatis ad vitae dolore aliquam vel totam fuga quos temporibus.',
@@ -188,6 +186,28 @@ const emails = [
         from: 'gitHub@desc.com',
         to: 'user@appsus.com',
         isStarred: false,
+    },
+    {
+        id: 'e119',
+        subject:
+            'Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias facere, veritatis ad vitae dolore aliquam vel totam fuga quos temporibus.',
+        body: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias facere, veritatis ad vitae dolore aliquam vel totam fuga quos temporibus.Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias facere, veritatis ad vitae dolore aliquam vel totam fuga quos temporibus.',
+        isRead: false,
+        sentAt: Date.now() - 800000000,
+        from: 'gitHub@desc.com',
+        to: 'user@appsus.com',
+        isStarred: false,
+    },
+    {
+        id: 'e120',
+        subject:
+            'Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias facere, veritatis ad vitae dolore aliquam vel totam fuga quos temporibus.',
+        body: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias facere, veritatis ad vitae dolore aliquam vel totam fuga quos temporibus.Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias facere, veritatis ad vitae dolore aliquam vel totam fuga quos temporibus.',
+        isRead: true,
+        sentAt: Date.now() - 800000000,
+        from: 'gitHub@desc.com',
+        to: 'user@appsus.com',
+        isStarred: true,
     },
 ];
 
