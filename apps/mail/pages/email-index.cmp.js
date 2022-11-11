@@ -7,7 +7,7 @@ export default {
     template: `
         <section class="mail-index">
             <email-compose />
-            <email-folder-list />
+            <email-folder-list/>
             <router-view></router-view>
         </section>
     `,
@@ -20,11 +20,7 @@ export default {
             },
         };
     },
-    created() {
-        mailService.query().then((emails) => {
-            this.emails = emails;
-        });
-    },
+    created() {},
 
     methods: {
         filter(filterBy) {

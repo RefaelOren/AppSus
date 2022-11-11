@@ -8,6 +8,7 @@ export const mailService = {
     getById,
     getEmptyEmail,
     save,
+    emailsToDisplay,
 };
 
 const loggedinUser = {
@@ -25,6 +26,7 @@ const emails = [
         from: 'momo@momo.com',
         to: 'user@appsus.com',
         isStarred: true,
+        status: 'inbox',
     },
     {
         id: 'e102',
@@ -36,6 +38,7 @@ const emails = [
         from: 'landowner@momo.com',
         to: 'user@appsus.com',
         isStarred: false,
+        status: 'inbox',
     },
     {
         id: 'e103',
@@ -46,6 +49,7 @@ const emails = [
         from: 'popo@momo.com',
         to: 'user@appsus.com',
         isStarred: false,
+        status: 'inbox',
     },
     {
         id: 'e104',
@@ -56,6 +60,7 @@ const emails = [
         from: 'linkedin@app.com',
         to: 'user@appsus.com',
         isStarred: false,
+        status: 'inbox',
     },
     {
         id: 'e105',
@@ -67,6 +72,7 @@ const emails = [
         from: 'gov-il@gov.com',
         to: 'user@appsus.com',
         isStarred: false,
+        status: 'inbox',
     },
     {
         id: 'e106',
@@ -78,6 +84,7 @@ const emails = [
         from: 'kuki@kuki.com',
         to: 'user@appsus.com',
         isStarred: true,
+        status: 'inbox',
     },
     {
         id: 'e107',
@@ -89,6 +96,7 @@ const emails = [
         from: 'facebook@app.com',
         to: 'user@appsus.com',
         isStarred: false,
+        status: 'inbox',
     },
     {
         id: 'e108',
@@ -100,6 +108,7 @@ const emails = [
         from: 'gitHub@desc.com',
         to: 'user@appsus.com',
         isStarred: false,
+        status: 'inbox',
     },
     {
         id: 'e109',
@@ -111,6 +120,7 @@ const emails = [
         from: 'momo@momo.com',
         to: 'user@appsus.com',
         isStarred: false,
+        status: 'inbox',
     },
     {
         id: 'e110',
@@ -122,6 +132,7 @@ const emails = [
         from: 'landowner@momo.com',
         to: 'user@appsus.com',
         isStarred: false,
+        status: 'inbox',
     },
     {
         id: 'e112',
@@ -133,6 +144,7 @@ const emails = [
         from: 'popo@momo.com',
         to: 'user@appsus.com',
         isStarred: false,
+        status: 'inbox',
     },
     {
         id: 'e113',
@@ -144,6 +156,7 @@ const emails = [
         from: 'linkedin@app.com',
         to: 'user@appsus.com',
         isStarred: true,
+        status: 'inbox',
     },
     {
         id: 'e114',
@@ -155,6 +168,7 @@ const emails = [
         from: 'gov-il@gov.com',
         to: 'user@appsus.com',
         isStarred: false,
+        status: 'inbox',
     },
     {
         id: 'e115',
@@ -166,6 +180,7 @@ const emails = [
         from: 'kuki@kuki.com',
         to: 'user@appsus.com',
         isStarred: false,
+        status: 'inbox',
     },
     {
         id: 'e116',
@@ -177,6 +192,7 @@ const emails = [
         from: 'facebook@app.com',
         to: 'user@appsus.com',
         isStarred: false,
+        status: 'inbox',
     },
     {
         id: 'e118',
@@ -188,6 +204,7 @@ const emails = [
         from: 'gitHub@desc.com',
         to: 'user@appsus.com',
         isStarred: false,
+        status: 'inbox',
     },
     {
         id: 'e119',
@@ -199,6 +216,7 @@ const emails = [
         from: 'gitHub@desc.com',
         to: 'user@appsus.com',
         isStarred: false,
+        status: 'inbox',
     },
     {
         id: 'e120',
@@ -210,6 +228,7 @@ const emails = [
         from: 'gitHub@desc.com',
         to: 'user@appsus.com',
         isStarred: true,
+        status: 'inbox',
     },
 ];
 
@@ -224,10 +243,10 @@ const criteria = {
 function query() {
     return storageService.query(EMAIL_KEY).then((email) => {
         if (!email || !email.length) {
-            email = emails
+            email = emails;
             saveDemoData(EMAIL_KEY, emails);
         }
-        return email
+        return email;
     });
 }
 
@@ -243,8 +262,9 @@ function getEmptyEmail() {
         to: '',
         subject: '',
         body: '',
-        isRead: false,
+        isRead: true,
         isStarred: false,
+        status: 'sent',
         sentAt: Date.now(),
     };
 }
@@ -255,5 +275,24 @@ function save(email) {
 }
 
 function saveDemoData(entityType, entities) {
-    localStorage.setItem(entityType, JSON.stringify(entities))
+    localStorage.setItem(entityType, JSON.stringify(entities));
+}
+
+function emailsToDisplay(filterBy) {
+    switch (filterBy) {
+        case 'sent':
+            return query().then((emails) => {
+                emails = emails.filter(
+                    (email) => email.from === 'user@appsus.com'
+                );
+                return emails;
+            });
+        case 'starred':
+            return query().then((emails) => {
+                emails = emails.filter((email) => email.isStarred);
+                return emails;
+            });
+        case 'inbox':
+            return query();
+    }
 }
