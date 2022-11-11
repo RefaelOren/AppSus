@@ -28,6 +28,10 @@ export default {
             notes:[],
             pinnedNotes:[],
             unPinnedNotes:[],
+            filterBy: {
+                vendor : '',
+                minSpeed: 0
+            },
         }
     },
     created(){

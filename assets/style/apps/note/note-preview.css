@@ -1,21 +1,17 @@
 .note-list ul{
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    /* column-count: 3;
-    column-gap: 40px;
-    column-rule: 1px solid lightblue; */
     gap: 10px;
     list-style-type: none;
     padding: 0;
 }
 
 .note-list ul li {
-    display: grid;
+    margin-bottom: 10px;
     height: max-content;
 }
 
 .note-img{
-    
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -28,6 +24,7 @@
 }
 
 .note{
+    width: 200px;
     display: flex;
     border: 1px solid grey;
     padding: 10px;

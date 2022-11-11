@@ -1,6 +1,6 @@
 .note-list{
     width: 95%;
     margin: 0 auto;
-    height: 60vh;
+    min-height: 60vh;
     
 }
