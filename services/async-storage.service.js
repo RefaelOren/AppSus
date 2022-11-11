@@ -14,7 +14,7 @@ function query(entityType, delay = 500) {
 function get(entityType, entityId) {
     console.log(entityId);
     return query(entityType).then((entities) => {
-        const entity = entities[0].find((entity) => entity.id === entityId);
+        const entity = entities.find((entity) => entity.id === entityId);
         if (!entity) throw new Error(`Unknown Entity ${entityId}`);
         return entity;
     });

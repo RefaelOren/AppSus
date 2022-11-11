@@ -1,10 +1,10 @@
 export default {
     props: ['email'],
     template: `
-      <section class="email-preview" :class="{'bg-blue':email.isRead}">
+      <section  class="email-preview" :class="{'bg-blue':email.isRead}">
             <div class="checkbox">
                  <input type="checkbox" />
-               <i class="fa-solid fa-star" :class="{yellow:email.isStarred,grey:!email.isStarred}" @click="email.isStarred=!email.isStarred"></i>
+               <i class="fa-solid fa-star" :class="{yellow:email.isStarred,grey:!email.isStarred}" @click=starred></i>
             </div>
             <router-link class="email-link" :to="'/email/details/' + email.id">
                 <div className="sent-from">
@@ -17,7 +17,11 @@ export default {
             </router-link>
      </section>
                 `,
-    methods: {},
+    methods: {
+        starred() {
+            this.email.isStarred = !this.email.isStarred;
+        },
+    },
 
     computed: {
         sendFrom() {

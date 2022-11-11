@@ -8,7 +8,7 @@ export default {
          <section class="email-list">
              <div v-if="emailsToDisplay.length">
                  <div  v-for="email in  emailsToDisplay" :key="email.id" >
-                     <email-preview  :email="email" /> 
+                     <email-preview :email="email" /> 
                  </div>
             </div>
         </section>
@@ -30,14 +30,19 @@ export default {
     },
 
     created() {
-        mailService.query().then((emails) => {
-            this.emails = emails;
-        });
+        this.renderEmails(this.$route.params.filter);
     },
 
     methods: {
         filter(filterBy) {
             this.filterBy = filterBy;
+        },
+
+        renderEmails(filterBy) {
+            console.log(this.$route.params.filter);
+            mailService.emailsToDisplay(filterBy).then((emails) => {
+                this.emails = emails;
+            });
         },
     },
 
@@ -52,6 +57,18 @@ export default {
             }
 
             return emails;
+        },
+
+        emailsFilter() {
+            return this.$route.params.filter;
+        },
+    },
+
+    watch: {
+        emailsFilter() {
+            if (!this.$route.params.filter) return;
+            console.log('oved');
+            this.renderEmails(this.$route.params.filter);
         },
     },
 };

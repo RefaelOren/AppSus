@@ -17,7 +17,7 @@ export default {
                       v-model="newEmail.from" 
                       ref="from"
                       type="text" 
-                      placeholder="From: email@email.com" />
+                      placeholder="user@appsus.com" />
                  <input 
                       v-model="newEmail.to" 
                       type="text" 
