@@ -9,7 +9,7 @@ import noteFilter from '../cmps/note-filter.cmp.js'
 export default {
     template: `
         <section class="note-index">
-            <note-filter/>
+            <note-filter @filter="filterNotes"/>
             <div class="note-container">
                 <note-add @add="addNote"/>
                 <note-list
@@ -28,30 +28,28 @@ export default {
             notes:[],
             pinnedNotes:[],
             unPinnedNotes:[],
-            filterBy: {
-                vendor : '',
-                minSpeed: 0
-            },
+            notesToShow: [],
+            filterBy:'',
         }
     },
     created(){
         noteService.query()
             .then(notes => {
                 this.notes = notes
-                this.sortNotes()
+                this.filterNotes(this.filterBy)
             })
     },
     methods: {
         togglePin(id){
             noteService.togglePin(id)
-            const idx = this.notes.findIndex(note => note.id === id)
-            this.notes[idx].isPinned = !this.notes[idx].isPinned
+            const idx = this.notesToShow.findIndex(note => note.id === id)
+            this.notesToShow[idx].isPinned = !this.notesToShow[idx].isPinned
             this.sortNotes()
         },
         sortNotes(){
             this.pinnedNotes = []
             this.unPinnedNotes = []
-            this.notes.forEach(note => {
+            this.notesToShow.forEach(note => {
                 if(note.isPinned) this.pinnedNotes.push(note)
                 else this.unPinnedNotes.push(note)
             });
@@ -60,6 +58,7 @@ export default {
             const idx = this.notes.findIndex(note => note.id === changeNote.id)
             this.notes[idx].style.backgroundColor = changeNote.bgColor
             noteService.updateNote(this.notes[idx])
+            this.filterNotes(this.filterBy)
         },
         addNote(noteInfo){
             console.log(noteInfo);
@@ -68,7 +67,7 @@ export default {
                     console.log('bef',this.notes);
                     this.notes.push(note)
                     console.log('aft',this.notes);
-                    this.sortNotes()
+                    this.filterNotes(this.filterBy)
                 })
         },
         removeNote(id){
@@ -76,8 +75,20 @@ export default {
             noteService.removeNote(id)
             const idx = this.notes.findIndex(note => note.id === id)
             this.notes.splice(idx, 1)
+            this.filterNotes(this.filterBy)
+        },
+        filterNotes(filterBy){
+            this.filterBy = filterBy
+            this.notesToShow = []
+            if(filterBy === '') this.notesToShow = this.notes;
+            else this.notes.forEach(note=>{
+                if(note.info.tags.findIndex(tag=> tag === filterBy) > -1){
+                    this.notesToShow.push(note)
+                }
+            })
             this.sortNotes()
-        }
+            console.log(this.notesToShow);
+        },
       
     },
     computed: {

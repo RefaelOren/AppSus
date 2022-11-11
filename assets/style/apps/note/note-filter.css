@@ -20,5 +20,15 @@
 .filter-notes:hover{
     cursor: pointer;
     filter: brightness(95%);
-    /* background-color: #feefc3; */
+}
+
+.filter-notes .tag{
+    color: whitesmoke;
+    font-size: 1.4rem;
+    font-weight:1000;
+    -webkit-text-stroke: 2px black;
+}
+
+.select{
+    background-color: #feefc3;
 }

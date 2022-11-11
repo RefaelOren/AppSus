@@ -15,31 +15,41 @@ const notes = [
         id: "n101", 
         type: "note-txt", 
         isPinned: true, 
-        info: { txt: "Fullstack Me Baby!" },
-        style: { backgroundColor: "#FF5733" } 
+        info:
+        {
+            tags: ['Work'], 
+            txt: "Fullstack Me Baby!",
+            title: "" 
+        },
+        style: { backgroundColor: "lightgreen" } 
     }, 
     { 
         id: "n102", 
         type: "note-img",
         isPinned: false, 
-        info: { 
+        info: 
+        {
+            tags: ['Work','Home'],
             url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSw0gWlEimLsPylCKAm95y1K27fCdzXEHGhXYTfEWXo&s", 
             title: "Bobi and Me" 
         }, 
-        style: { backgroundColor: "#00d" } 
+        style: { backgroundColor: "lightblue" } 
     }, 
     { 
         id: "n103", 
         type: "note-todos", 
         isPinned: false,
-        info: { 
-            label: "Get my stuff together", 
-            todos: [ 
+        info: 
+        { 
+            title: "Get my stuff together",
+            tags: ['Home'], 
+            todos:
+            [ 
                 { txt: "Driving liscence", doneAt: null }, 
                 { txt: "Coding power", doneAt: 187111111}
-                ]
-            },
-        style: { backgroundColor: "#FFFFFF" } 
+            ]
+        },
+        style: { backgroundColor: "whitesmoke" } 
     } 
 ] 
 
@@ -85,7 +95,12 @@ function _createTxtNote(noteInfo){
     return {
         type: "note-txt", 
         isPinned: false, 
-        info: { txt:noteInfo.txt},
+        info: 
+            { 
+                title: '',
+                txt:noteInfo.txt,
+                tags:[],
+            },
         style: { backgroundColor: noteInfo.backgroundColor }
     }
 }

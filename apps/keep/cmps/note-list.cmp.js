@@ -34,6 +34,7 @@ export default {
                 <component
                     @toggle="togglePin(note.id)"
                     @remove="remove(note.id)"
+                    @color="changecolor"
                     :is="note.type" 
                     :note="note">    
                 </component>

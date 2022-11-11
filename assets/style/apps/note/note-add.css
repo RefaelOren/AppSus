@@ -57,3 +57,7 @@
 .toggle-color{
     cursor: pointer;
 }
+
+.note-add input:hover{
+    cursor:text;
+}
