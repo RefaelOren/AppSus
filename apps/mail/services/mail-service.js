@@ -6,6 +6,8 @@ const EMAIL_KEY = 'emailDB';
 export const mailService = {
     query,
     getById,
+    getEmptyEmail,
+    save,
 };
 
 const loggedinUser = {
@@ -230,4 +232,22 @@ function query() {
 function getById(emailId) {
     console.log(emailId);
     return storageService.get(EMAIL_KEY, emailId);
+}
+
+function getEmptyEmail() {
+    return {
+        id: '',
+        from: '',
+        to: '',
+        subject: '',
+        body: '',
+        isRead: false,
+        isStarred: false,
+        sentAt: Date.now(),
+    };
+}
+
+function save(email) {
+    email.id = utilService.makeId();
+    return storageService.post(EMAIL_KEY, email);
 }
