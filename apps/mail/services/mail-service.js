@@ -224,8 +224,10 @@ const criteria = {
 function query() {
     return storageService.query(EMAIL_KEY).then((email) => {
         if (!email || !email.length) {
-            return storageService.put(EMAIL_KEY, emails);
-        } else return email[0];
+            email = emails
+            saveDemoData(EMAIL_KEY, emails);
+        }
+        return email
     });
 }
 
@@ -250,4 +252,8 @@ function getEmptyEmail() {
 function save(email) {
     email.id = utilService.makeId();
     return storageService.post(EMAIL_KEY, email);
+}
+
+function saveDemoData(entityType, entities) {
+    localStorage.setItem(entityType, JSON.stringify(entities))
 }
