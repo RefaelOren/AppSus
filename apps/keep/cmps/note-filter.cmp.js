@@ -23,7 +23,7 @@ export default {
                 <span>Reminders</span>
             </div> -->
 
-            <div class="filter-notes" @click="filter('Work')" :class="{select:selected === 'Work',alone:!isIcon}" title="Work">
+            <div class="filter-notes work" @click="filter('Work')" :class="{select:selected === 'Work',alone:!isIcon}" title="Work">
                 <!-- <svg class="icon arrow" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
                     <path d="M17.63 5.84C17.27 5.33 16.67 5 16 5L5 5.01C3.9 5.01 3 5.9 3 7v10c0 1.1.9 1.99 2 1.99L16 19c.67 0 1.27-.33 1.63-.84L22 
                     12l-4.37-6.16zM16 17H5V7h11l3.55 5L16 17z"></path>
@@ -34,7 +34,7 @@ export default {
                 </div>
             </div>
 
-            <div class="filter-notes" @click="filter('Home')" :class="{select:selected === 'Home',alone:!isIcon}" title="Home">
+            <div class="filter-notes home" @click="filter('Home')" :class="{select:selected === 'Home',alone:!isIcon}" title="Home">
                 <!-- <svg class="icon arrow" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
                     <path d="M17.63 5.84C17.27 5.33 16.67 5 16 5L5 5.01C3.9 5.01 3 5.9 3 7v10c0 1.1.9 1.99 2 1.99L16 19c.67 0 1.27-.33 1.63-.84L22 
                     12l-4.37-6.16zM16 17H5V7h11l3.55 5L16 17z"></path>
@@ -66,16 +66,16 @@ export default {
             </div>
         </section>
     `,
-     data() {
-        return{
+    data() {
+        return {
             selected: '',
             isIcon: false,
-        }
-      },
-    methods:{
-        filter(filterBy){
-            this.$emit('filter',filterBy)
-            this.selected = filterBy
-        }
+        };
+    },
+    methods: {
+        filter(filterBy) {
+            this.$emit('filter', filterBy);
+            this.selected = filterBy;
+        },
     },
 };
