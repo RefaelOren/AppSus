@@ -25,3 +25,19 @@
     box-shadow: 0px 0px 15px 5px #f7ffff;
     margin-bottom: 20px;
 }
+
+.about-page h1 {
+    font-weight: 500;
+}
+
+.mail-header {
+    color: rgb(231, 82, 82);
+}
+
+.keep-header {
+    color: yellow;
+}
+
+.book-header {
+    color: rgb(152, 96, 207);
+}
