@@ -8,7 +8,7 @@ export default {
          <section class="email-list">
              <div v-if="emailsToDisplay.length">
                  <div  v-for="email in  emailsToDisplay" :key="email.id" >
-                     <email-preview :email="email" /> 
+                     <email-preview @starred="updateStarred" :email="email" /> 
                  </div>
             </div>
         </section>
@@ -43,6 +43,10 @@ export default {
             mailService.emailsToDisplay(filterBy).then((emails) => {
                 this.emails = emails;
             });
+        },
+
+        updateStarred(emailId) {
+            console.log(emailId);
         },
     },
 
