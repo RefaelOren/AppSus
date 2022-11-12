@@ -31,6 +31,7 @@
 }
 
 .email-preview .checkbox {
+    width: 60px;
     flex-basis: 6%;
     display: flex;
     gap: 3px;
@@ -53,6 +54,7 @@ input {
 .sent-from {
     flex-basis: 10%;
     flex-shrink: 1;
+    width: max-content;
 }
 
 .email-link .info {
@@ -61,12 +63,60 @@ input {
     justify-content: space-between;
 }
 
-.info .subject {
-    text-overflow: ellipsis;
-
+.subject {
+    width: 100px;
     white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .info .date {
     font-size: 12px;
+    width: 45px;
 }
+
+@media (min-width: 400px) {
+    .subject {
+        width: 150px;
+    }
+}
+@media (min-width: 500px) {
+    .subject {
+        width: 210px;
+    }
+}
+@media (min-width: 600px) {
+    .subject {
+        width: 270px;
+    }
+}
+@media (min-width: 700px) {
+    .subject {
+        width: 350px;
+    }
+}
+@media (min-width: 800px) {
+    .subject {
+        width: 450px;
+    }
+}
+@media (min-width: 900px) {
+    .subject {
+        width: 550px;
+    }
+}
+@media (min-width: 1000px) {
+    .subject {
+        width: 630px;
+    }
+}
+@media (min-width: 1100px) {
+    .subject {
+        width: 700px;
+    }
+}
+@media (min-width: 1200px) {
+    .subject {
+        width: 800px;
+    }
+} ;

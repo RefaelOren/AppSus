@@ -9,11 +9,11 @@ export default {
                 </div>
                 <div className="filter-box">
 
+                    <label htmlFor="all">
+                        All
+                        <input @change="filter" v-model="filterBy.isRead"  type="radio" value="all" id="all" />
+                    </label>
                     <label htmlFor="read">
-                        <label htmlFor="all">
-                            All
-                            <input @change="filter" v-model="filterBy.isRead"  type="radio" value="all" id="all" />
-                        </label>
                         Read
                         <input @change="filter" v-model="filterBy.isRead"  type="radio" value="read" id="read" />
                     </label>

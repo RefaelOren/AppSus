@@ -17,8 +17,6 @@ export default {
                 </div>
                 <p>{{email.body}}</p>
             </div>
-
-           
         </section>
     `,
 

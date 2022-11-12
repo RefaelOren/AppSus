@@ -1,6 +1,6 @@
 .mail-index {
     position: relative;
-    background-color: rgb(246, 248, 252);
+    background-color: var(--clr7);
     font-size: 14px;
     min-height: 80vh;
 }
