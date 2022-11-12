@@ -52,7 +52,74 @@ const notes = [
             ]
         },
         style: { backgroundColor: "whitesmoke" } 
-    } 
+    },
+    { 
+        id: "n104", 
+        type: "note-txt", 
+        isPinned: false, 
+        info:
+        {
+            tags: ['Home'], 
+            txt: "Check mail",
+            title: "I Like Mail" 
+        },
+        style: { backgroundColor: "lightgoldenrodyellow" } 
+    }, 
+    { 
+        id: "n105", 
+        type: "note-txt", 
+        isPinned: true, 
+        info:
+        {
+            tags: ['Work','Home'], 
+            txt: "Watch Netflix",
+            title: "Netflix&Chill" 
+        },
+        style: { backgroundColor: "lightblue" } 
+    }, 
+    { 
+        id: "n106", 
+        type: "note-txt", 
+        isPinned: false, 
+        info:
+        {
+            tags: [], 
+            txt: "What about love",
+            title: "" 
+        },
+        style: { backgroundColor: "lightgreen" } 
+    },
+    { 
+        id: "n107", 
+        type: "note-todos", 
+        isPinned: true,
+        info: 
+        { 
+            title: "Groceries List",
+            tags: ['Home'], 
+            todos:
+            [ 
+                { txt: "Tomatos", doneAt: null }, 
+                { txt: "Bamba", doneAt: 187111111},
+                { txt: "Cola", doneAt: null},
+                { txt: "Meat", doneAt: null},
+                { txt: "Rice", doneAt: 187111111},
+            ]
+        },
+        style: { backgroundColor: "lightcoral" } 
+    },
+    { 
+        id: "n108", 
+        type: "note-img",
+        isPinned: true, 
+        info: 
+        {
+            tags: [],
+            url: "../../assets/img/Fotolia_Brain-Creativity.jpg", 
+            title: null, 
+        }, 
+        style: { backgroundColor: "whitesmoke" } 
+    },  
 ] 
 
 function query(){ 

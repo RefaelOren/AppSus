@@ -9,7 +9,7 @@ export default {
             </div>
             <i :style="{color:'black'}" title="Unpin note" @click="togglePin(note.id)" class="fa-solid fa-thumbtack" v-if="note.isPinned"></i>
             <i :style="{color:'lightgray'}" title="Pin note" @click="togglePin(note.id)" class="fa-solid fa-thumbtack" v-else></i>
-            <div class="note-tags">
+            <div class="note-tags" :class="{active:note.info.tags.length > 0}">
                 <span class="note-tag" v-for="tag in note.info.tags">{{tag}} </span>
             </div>
             <div class="edit-container">

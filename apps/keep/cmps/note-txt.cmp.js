@@ -2,7 +2,8 @@ export default {
     props:['note','tags'],
     template: `
         <section ref="note" tabindex="0" class="note note-txt" :style="noteStyle">
-            <h2>{{ note.info.txt }}</h2>
+            <h2>{{ note.info.title }}</h2>
+            <h4>{{ note.info.txt }}</h4>
             <i :style="{color:'black'}" title="Unpin note" @click="togglePin(note.id)" class="fa-solid fa-thumbtack" v-if="note.isPinned"></i>
             <i :style="{color:'lightgray'}" title="Pin note" @click="togglePin(note.id)" class="fa-solid fa-thumbtack" v-else></i>
             <div class="note-tags">

@@ -15,6 +15,7 @@ export default {
                 <li v-for="note in pinnedNotes" :key="note.id">
                     <!-- <note-preview :note="note"/> -->
                 <component
+                    @todo="todo"
                     @tag="ToggleCheck"
                     @toggle="togglePin(note.id)"
                     @color="changecolor"
@@ -34,6 +35,7 @@ export default {
             <li v-for="note in unPinnedNotes" :key="note.id">
                 <!-- <note-preview :note="note"/> -->
                 <component
+                    @todo="todo"
                     @tag="ToggleCheck"
                     @toggle="togglePin(note.id)"
                     @remove="remove(note.id)"
@@ -61,6 +63,9 @@ export default {
         },
         ToggleCheck(tag){
             this.$emit('tag',tag)
+        },
+        todo(todo){
+            this.$emit('todo', todo);
         }
     },
     computed: {},

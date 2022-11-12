@@ -4,8 +4,8 @@ export default {
         <section ref="note" tabindex="0" class="note note-todos" :style="noteStyle">
             <h2>{{ note.info.label }}</h2>
             <section class="todos" v-for="todo in note.info.todos">
-                <input type="checkbox" :name="todo.txt" v-if="todo.doneAt">
-                <input type="checkbox" :name="todo.txt" v-else checked>
+                <input type="checkbox" :name="todo.txt" @click="toggleTodo(todo.txt,todo.doneAt)" v-if="todo.doneAt" checked>
+                <input type="checkbox" :name="todo.txt" @click="toggleTodo(todo.txt,todo.doneAt)" v-else>
                 <label :for="todo.txt"> {{todo.txt}}</label>
             </section>
             <i :style="{color:'black'}" title="Unpin note" @click="togglePin(note.id)" class="fa-solid fa-thumbtack" v-if="note.isPinned"></i>
@@ -76,6 +76,10 @@ export default {
         toggleTag(){
             this.isTag = !this.isTag
             this.focusOnNote()
+        },
+        toggleTodo(txt,done){
+            const todoLoc = this.note.info.todos.findIndex(todo=>todo.txt === txt)
+            this.$emit('todo', {id:this.note.id,todoLoc:todoLoc,done:done});
         },  
     },
     computed: {
@@ -84,5 +88,13 @@ export default {
                 backgroundColor: this.bgColor,
             }
         },
+        noteWatch(){
+            return this.note
+        }
 	},
+    watch:{
+        noteWatch(){
+            return console.log('change');
+        }
+    },
 };

@@ -13,6 +13,7 @@ export default {
             <div class="note-container">
                 <note-add @add="addNote"/>
                 <note-list
+                    @todo="toggleTodo"
                     @tag="ToggleCheck"
                     @toggle="togglePin"
                     @remove="removeNote"
@@ -39,6 +40,7 @@ export default {
         noteService.query()
             .then(notes => {
                 this.notes = notes
+                // this.notes.forEach(note => {if(note.type === "note-todos")this.arrangeTodo(note.id)})
                 this.filterNotes(this.filterBy)
             })
         noteService.getTags()
@@ -105,7 +107,26 @@ export default {
                 this.notes[idx].info.tags.splice(tag,1)
             }
             noteService.updateNote(this.notes[idx])
-        }
+        },
+        toggleTodo(todo){
+            const idx = this.notes.findIndex(note => note.id === todo.id)
+            if(todo.done) {
+                this.notes[idx].info.todos[todo.todoLoc].doneAt = null 
+            }
+            else {
+                this.notes[idx].info.todos[todo.todoLoc].doneAt = Date.now()
+                // this.arrangeTodo(todo.id,todo.todoLoc)
+            }
+            noteService.updateNote(this.notes[idx])
+        },
+        // arrangeTodo(noteId,todoLoc){
+        //     const idx = this.notes.findIndex(note => note.id === noteId)  
+        //     const arr = this.notes[idx].info.todos
+        //     const element = arr.splice(todoLoc, 1)[0];
+        //     arr.splice(arr.length,0,element)
+        //     // this.filterNotes(this.filterBy)
+        //     console.log(arr);
+        // }
       
     },
     computed: {

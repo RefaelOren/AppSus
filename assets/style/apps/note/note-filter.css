@@ -1,6 +1,6 @@
 .note-filter{
-    position: fixed;
-    top:10;
+    /* position: fixed;
+    top:10; */
     height: 80vh;
     margin: 0 auto;
     display: flex;
@@ -63,6 +63,8 @@
 }
 
 .icons{
+    position: fixed;
+    top:10;
     margin:0;
     width: 5vw;
     padding-left: 35px;
