@@ -8,6 +8,7 @@ export const noteService={
     removeNote,
     updateNote,
     getTags,
+    addTodo,
 }
 const NOTES_KEY = 'notesDB'
 const TAGS_KEY = 'tagsDB'
@@ -148,6 +149,11 @@ function addNote(noteInfo){
     return storageService.post(NOTES_KEY,note)
 }
 
+function addTodo(noteInfo){
+    const note = _createTodoNote(noteInfo)
+    return storageService.post(NOTES_KEY,note)
+}
+
 function removeNote(id){
     return storageService.remove(NOTES_KEY,id)
 }
@@ -168,8 +174,23 @@ function _createTxtNote(noteInfo){
             { 
                 title: noteInfo.title || '',
                 txt:noteInfo.txt,
-                tags:[noteInfo.tags || null],
+                tags: noteInfo.tags || [],
             },
+        style: { backgroundColor: noteInfo.backgroundColor }
+    }
+}
+
+function _createTodoNote(noteInfo){
+    return {
+        type: "note-todos", 
+        isPinned: noteInfo.isPinned || false,
+        info: 
+        { 
+            title: noteInfo.title || '', 
+            todos: noteInfo.txt || [],
+            tags: noteInfo.tags || [],
+            
+        },
         style: { backgroundColor: noteInfo.backgroundColor }
     }
 }

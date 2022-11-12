@@ -2,7 +2,7 @@ export default {
     props:['note','tags'],
     template: `
         <section ref="note" tabindex="0" class="note note-todos" :style="noteStyle">
-            <h2>{{ note.info.label }}</h2>
+            <h2>{{ note.info.title }}</h2>
             <section class="todos" v-for="todo in note.info.todos">
                 <input type="checkbox" :name="todo.txt" @click="toggleTodo(todo.txt,todo.doneAt)" v-if="todo.doneAt" checked>
                 <input type="checkbox" :name="todo.txt" @click="toggleTodo(todo.txt,todo.doneAt)" v-else>
@@ -17,10 +17,13 @@ export default {
                 <div class="color-container">
                     <div class="toggle-color" @click="toggleColor" title="Background options"><i class="fas fa-palette"></i></div>    
                     <div class="color-picker" v-if="iscolor">
-                        <div class="color" :style="{backgroundColor:'lightblue'}" @click="chooseBgColor('lightblue')"></div>
                         <div class="color" :style="{backgroundColor:'lightcoral'}" @click="chooseBgColor('lightcoral')"></div>
+                        <div class="color" :style="{backgroundColor:'lightsalmon'}" @click="chooseBgColor('lightsalmon')"></div>
+                        <div class="color" :style="{backgroundColor:'lightpink'}" @click="chooseBgColor('lightpink')"></div>
                         <div class="color" :style="{backgroundColor:'lightgoldenrodyellow'}" @click="chooseBgColor('lightgoldenrodyellow')"></div>
                         <div class="color" :style="{backgroundColor:'lightgreen'}" @click="chooseBgColor('lightgreen')"></div>
+                        <div class="color" :style="{backgroundColor:'lightseagreen'}" @click="chooseBgColor('lightseagreen')"></div>
+                        <div class="color" :style="{backgroundColor:'lightblue'}" @click="chooseBgColor('lightblue')"></div>
                         <div class="color" :style="{backgroundColor:'whitesmoke'}" @click="chooseBgColor('whitesmoke')"></div>
                     </div>
                 </div>

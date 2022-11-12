@@ -74,3 +74,15 @@
 .note-add input:hover {
     cursor: text;
 }
+
+.todo-btn{
+    padding: 5px;
+    cursor: pointer;
+    font-size: large;
+    font-weight: bold;
+}
+
+.todo-inputs{
+    display: flex;
+    flex-direction: column;
+}

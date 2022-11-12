@@ -4,6 +4,7 @@ import { eventBus } from '../../../services/event-bus.service.js'
 import noteDetails from './note-details.cmp.js'
 import noteList from '../cmps/note-list.cmp.js'
 import noteAdd from '../cmps/note-add.cmp.js'
+import noteAddTodo from '../cmps/note-add-todo.cmp.js'
 import noteFilter from '../cmps/note-filter.cmp.js'
 
 
@@ -12,7 +13,13 @@ export default {
         <section class="note-index">
             <note-filter @filter="filterNotes"/>
             <div class="note-container">
-                <note-add @add="addNote"/>
+                <note-add v-if="isSwitchTodo" 
+                    @closeAdd="isSwitchTodo = true"
+                    @openTodo="isSwitchTodo = false"
+                    @add="addNote"/>
+                <note-add-todo v-else
+                    @closeAdd="isSwitchTodo = true" 
+                    @addTodo="addTodo"/>
                 <note-list
                     @todo="toggleTodo"
                     @tag="ToggleCheck"
@@ -34,7 +41,8 @@ export default {
             unPinnedNotes:[],
             notesToShow: [],
             filterBy:'',
-            tags:[]
+            tags:[],
+            isSwitchTodo:true,
         }
     },
     created(){
@@ -78,7 +86,6 @@ export default {
             this.filterNotes(this.filterBy)
         },
         addNote(noteInfo){
-            console.log(noteInfo);
             noteService.addNote(noteInfo)
                 .then(note=>{
                     this.notes.push(note)
@@ -125,6 +132,13 @@ export default {
             }
             noteService.updateNote(this.notes[idx])
         },
+        addTodo(todo){
+            noteService.addTodo(todo)
+                .then(note=>{
+                    this.notes.push(note)
+                    this.filterNotes(this.filterBy)
+                })        
+        }
         // arrangeTodo(noteId,todoLoc){
         //     const idx = this.notes.findIndex(note => note.id === noteId)  
         //     const arr = this.notes[idx].info.todos
@@ -148,5 +162,6 @@ export default {
         noteDetails,
         noteAdd,
         noteFilter,
+        noteAddTodo,
 	},
 };

@@ -1,10 +1,22 @@
+
 export default {
     template: `
         <section class="note-add" :style="inputStyle" ref="add" tabindex="0">
             <form class="add-form" @submit.prevent="addNote">
-                <input class="title" type="text" placeholder="Title" v-model="noteTitle" v-if="isFormOpen">
-                <div class="init-form">
-                    <input type="text" placeholder="Take a note..." @focus="isFormOpen = true" v-model="noteTxt">
+                <input class="title" type="text" placeholder="Title" v-model="noteTitle"> 
+                <div class="init-form" id="init-form">
+                    <div @click="makeInput" class="todo-btn">+</div>
+                    <div class="todo-inputs">   
+                        <input
+                            oncontextmenu="return false"
+                            @contextmenu="removeInput(index)"
+                            type="input"
+                            v-for="(notetodo, index) in noteTodos"
+                            :key="index"
+                            title="Right click to delete"
+                            v-model="noteTodos[index].txt"
+                            placeholder="Add an item"/>
+                    </div>
                     <div class="color-container">
                         <div class="toggle-color" @click="toggleColor"><i class="fas fa-palette"></i></div>    
                         <div class="color-picker" v-if="iscolor">
@@ -19,38 +31,26 @@ export default {
                         </div>
                     </div>
                     <button><i class="fa-regular fa-floppy-disk"></i></button>
-                    <button @click="closeAdd" v-if="isFormOpen">close</button>
+                    <button @click="isFormOpen = false" @click="closeAdd">close</button>
                 </div>
-            </form>  
-            <button class="fa-regular fa-square-check note-btn" v-if="isFormOpen === false" @click="openTodo"></button>
-            <input id="fileUpload" type="file" hidden>
-            <button @click="chooseFiles()">Choose</button>
-            <img :src="previewImage" class="uploading-image" />
+            </form>
         </section>
     `,
     data(){
         return{
-            noteTxt:null,
+            noteTodos:[{txt:null,doneAt:null}],
             bgColor:'whitesmoke',
             iscolor:false,
             noteTitle:null,
-            isFormOpen:false,
-            previewImage:null,
-        }
-    },
-    mounted(){
-        while (this.isFormOpen||this.check) {
-            this.open = true
         }
     },
     methods: {
         addNote(){
-            if(this.noteTxt){
-                // console.log(this.noteTxt);
-                this.$emit('add',{txt:this.noteTxt,backgroundColor:this.bgColor,title:this.noteTitle})
-                this.noteTxt = null
-                this.bgColor = 'whitesmoke'
-                this.isFormOpen = false
+            if(this.noteTodos[0].txt){
+                this.$emit('addTodo',{txt:this.noteTodos,backgroundColor:this.bgColor,title:this.noteTitle})
+                // this.noteTxt = null
+                // this.bgColor = 'whitesmoke'
+                this.$emit('closeAdd',true)
             }
         },
         chooseBgColor(color){
@@ -64,14 +64,13 @@ export default {
             console.log(mode);
         },
         closeAdd(){
-            this.isFormOpen = false
             this.$emit('closeAdd',true)
         },
-        openTodo(){
-            this.$emit('openTodo',false)
+        makeInput(){
+            this.noteTodos.push({txt:null,doneAt:null})
         },
-        chooseFiles() {
-            document.getElementById("fileUpload").click()
+        removeInput(index){
+            this.noteTodos.splice(index,1)
         },
     },
     computed: {
