@@ -7,12 +7,25 @@ export default {
                 </router-link>
                 <img src="assets/img/logo.png" alt="" />
                 </div>
-            <nav class="links">
-                <router-link to="/">Home</router-link>
-                <router-link to="/about">About</router-link>
-                <router-link to="/email/inbox">Mail</router-link>
-                <router-link to="/note">Note</router-link>
+            <nav class="links" :class="isShown">
+                <router-link to="/"><span @click="isNavOpen=!isNavOpen">Home</span></router-link>
+                <router-link to="/about"><span @click="isNavOpen=!isNavOpen">About</span></router-link>
+                <router-link to="/email/inbox"><span @click="isNavOpen=!isNavOpen">Mail</span></router-link>
+                <router-link to="/note"><span @click="isNavOpen=!isNavOpen">Keep</span></router-link>
             </nav>
+            <button @click="isNavOpen=!isNavOpen" class="nav-btn-header"><i class="fa-solid fa-bars"></i></button>
         </header>
     `,
+
+    data() {
+        return {
+            isNavOpen: false,
+        };
+    },
+    computed: {
+        isShown() {
+            if (this.isNavOpen) return 'open';
+            else return '';
+        },
+    },
 };
