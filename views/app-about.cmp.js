@@ -4,7 +4,7 @@ export default {
             <h1 class="about">About Us</h1>
             <div className="section-center">
                 <div>
-                    <h1>AppSus Mail</h1>
+                    <h1 class="mail-header">AppSus Mail</h1>
                     <router-link to="/email/inbox">
                         <img src="assets/img/mail.png" alt="" />
                     </router-link>
@@ -12,7 +12,7 @@ export default {
                     <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Expedita nesciunt quaerat quibusdam error optio eveniet sit cum numquam quod suscipit!</p>
                 </div>
                 <div>
-                    <h1>AppSus Keep</h1>
+                    <h1 class="keep-header">AppSus Keep</h1>
                     <router-link to="/note">
                         <img src="assets/img/keep.png" alt="" />
                     </router-link>
@@ -20,7 +20,7 @@ export default {
                     <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ducimus consequuntur cum dolorum eius commodi? Deleniti molestias commodi repudiandae delectus exercitationem!</p>
                 </div>
                 <div>
-                    <h1>AppSus Books</h1>
+                    <h1 class="book-header">AppSus Books</h1>
                     <router-link to="/book">
                         <img src="assets/img/books.png" alt="" />
                     </router-link>
