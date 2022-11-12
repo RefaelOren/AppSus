@@ -1,4 +1,5 @@
 export default {
+    props:['tags'],
     template: `
         <section class="note-filter" :class="{icons:!isIcon}">
             
@@ -15,37 +16,29 @@ export default {
                 </div>
             </div>
 
-            <!-- <div class="filter-notes" :class="{select:selected === 'Reminders'}">
-                <svg class="icon bell" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-                    <path d="M18 17v-6c0-3.07-1.63-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C7.64 5.36 6 7.92 6 11v6H4v2h16v-2h-2zm-2 
-                    0H8v-6c0-2.48 1.51-4.5 4-4.5s4 2.02 4 4.5v6zm-4 5c1.1 0 2-.9 2-2h-4c0 1.1.9 2 2 2z"></path>
-                </svg>
-                <span>Reminders</span>
-            </div> -->
 
-            <div class="filter-notes work" @click="filter('Work')" :class="{select:selected === 'Work',alone:!isIcon}" title="Work">
-                <!-- <svg class="icon arrow" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-                    <path d="M17.63 5.84C17.27 5.33 16.67 5 16 5L5 5.01C3.9 5.01 3 5.9 3 7v10c0 1.1.9 1.99 2 1.99L16 19c.67 0 1.27-.33 1.63-.84L22 
-                    12l-4.37-6.16zM16 17H5V7h11l3.55 5L16 17z"></path>
-                </svg> -->
+            <div 
+                class="filter-notes" 
+                @click="filter(tag)" 
+                :class="{select:selected === tag,alone:!isIcon}" 
+                :title="tag" 
+                v-for="tag in tags"
+                :key="tag">
+
                 <div class="fa-solid fa-tag icon tag"></div>
                 <div class="filter-name" v-if="isIcon">
-                    <span>Work</span>
+                    <span>{{tag}}</span>
                 </div>
             </div>
 
-            <div class="filter-notes home" @click="filter('Home')" :class="{select:selected === 'Home',alone:!isIcon}" title="Home">
-                <!-- <svg class="icon arrow" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-                    <path d="M17.63 5.84C17.27 5.33 16.67 5 16 5L5 5.01C3.9 5.01 3 5.9 3 7v10c0 1.1.9 1.99 2 1.99L16 19c.67 0 1.27-.33 1.63-.84L22 
-                    12l-4.37-6.16zM16 17H5V7h11l3.55 5L16 17z"></path>
-                </svg> -->
+            <!-- <div class="filter-notes home" @click="filter('Home')" :class="{select:selected === 'Home',alone:!isIcon}" title="Home" >
                 <div class="fa-solid fa-tag icon tag"></div>
                 <div class="filter-name" v-if="isIcon">
                     <span>Home</span>
                 </div>
-            </div>
+            </div> -->
 
-            <div class="filter-notes" :class="{select:selected === 'Edit',alone:!isIcon}" title="Edit Labels">
+            <div class="filter-notes" :class="{select:selected === 'Edit',alone:!isIcon}" title="Edit Labels" :class="{select:selected === 'Edit',alone:!isIcon}" @click="editTags('Edit')">
                 <svg class="icon pen" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
                     <path d="M20.41 4.94l-1.35-1.35c-.78-.78-2.05-.78-2.83 0L13.4 6.41 3 16.82V21h4.18l10.46-10.46 2.77-2.77c.79-.78.79-2.05 0-2.83zm-14 
                     14.12L5 19v-1.36l9.82-9.82 1.41 1.41-9.82 9.83z"></path>
@@ -55,15 +48,6 @@ export default {
                 </div>
             </div>
 
-            <div class="filter-notes" :class="{select:selected === 'Bin',alone:!isIcon}" title="Deleted Notes">
-                <svg class="icon trash-can" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-                    <path d="M15 4V3H9v1H4v2h1v13c0 1.1.9 2 2 2h10c1.1 0 2-.9 2-2V6h1V4h-5zm2 15H7V6h10v13z"></path>
-                    <path d="M9 8h2v9H9zm4 0h2v9h-2z"></path>
-                </svg>
-                <div class="filter-name" v-if="isIcon">
-                    <span>Bin</span>
-                </div>
-            </div>
         </section>
     `,
     data() {
@@ -77,5 +61,10 @@ export default {
             this.$emit('filter', filterBy);
             this.selected = filterBy;
         },
+        editTags(filter){
+            this.selected = filter;
+            this.$emit('editTags', filter);
+            setTimeout(()=>{this.selected=''},2000)
+        }
     },
 };

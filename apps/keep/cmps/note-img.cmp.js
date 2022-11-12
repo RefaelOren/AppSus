@@ -1,8 +1,8 @@
 export default {
     props:['note','tags'],
     template: `
-        <section ref="note" tabindex="0" class="note note-img" :style="noteStyle" @click="openDetails">
-            <img :src="note.info.url"/>
+        <section ref="note" tabindex="0" class="note note-img" :style="noteStyle" >
+            <img :src="note.info.url" @click.self="openDetails"/>
             <div class="img-info" v-if="note.info.title||note.info.txt">
                 <h2 class=img-title v-if="note.info.title">{{note.info.title}}</h2>
                 <div class=img-txt v-if="note.info.txt">{{note.info.txt}}</div>

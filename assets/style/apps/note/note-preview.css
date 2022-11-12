@@ -9,6 +9,10 @@
     padding: 0;
 }
 
+.note h2,h3,h4{
+    width: fit-content;
+}
+
 .note-list ul li {
     break-inside: avoid-column;
     margin-bottom: 10px;
@@ -205,6 +209,14 @@
 .note .active {
     padding-top: 10px;
     padding-bottom: 50px;
+}
+
+.todos{
+    width: fit-content;
+}
+
+.note-tags{
+    width: fit-content;
 }
 
 /* mobile only */

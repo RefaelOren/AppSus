@@ -2,12 +2,33 @@
     position:fixed;
     display: flex;
     flex-direction: column;
-    top: 50%;
-    bottom: 50%;
+    top: 20%;
+    bottom: 80%;
     right: 50%;
     left: 50%;
-    width: max-content;
+    width: 300px;
     height: max-content;
     padding: 10px;
     background-color: whitesmoke;
+    border: 1px solid black;
+    border-radius: 5px;
+    text-align: center;
+    color: black;
+}
+
+.note-details button{
+    margin: 0 auto;
+    color: black;
+    background-color: inherit;
+    border-color: transparent;
+    border-radius: 25px;
+    width: fit-content;
+    text-align: center;
+    filter: brightness(90%);
+}
+
+.note-details input{
+    margin-block-end: 5px;
+    border-radius: 25px;
+    cursor: text;
 }

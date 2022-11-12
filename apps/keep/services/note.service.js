@@ -10,6 +10,7 @@ export const noteService={
     getTags,
     addTodo,
     addImg,
+    saveTags,
 }
 const NOTES_KEY = 'notesDB'
 const TAGS_KEY = 'tagsDB'
@@ -224,4 +225,8 @@ function getTags(){
             }
             return tags
         })
+}
+
+function saveTags(tags){
+    _save(TAGS_KEY,tags)
 }

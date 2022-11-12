@@ -11,7 +11,10 @@ import noteFilter from '../cmps/note-filter.cmp.js'
 export default {
     template: `
         <section class="note-index">
-            <note-filter @filter="filterNotes"/>
+            <note-filter 
+                @filter="filterNotes"
+                @editTags="editTags"
+                :tags="tags"/>
             <div class="note-container">
                 <note-add v-if="isSwitchTodo" 
                     @closeAdd="isSwitchTodo = true"
@@ -35,7 +38,9 @@ export default {
                 <note-details 
                     v-if="showDetails"
                     :note="detailNote"
-                    :tags="tags"/>
+                    :tags="detailTags"
+                    @closeDetailes="closeDetailes"
+                    @closeTags="closeTags"/>
             </div>
         </section>
     `,
@@ -50,6 +55,7 @@ export default {
             isSwitchTodo:true,
             showDetails:false,
             detailNote:null,
+            detailTags:null,
         }
     },
     created(){
@@ -155,8 +161,27 @@ export default {
         },
         openDetails(note){
             this.detailNote= note
+            this.detailTags = null
             this.showDetails = true
-        }
+        },
+        closeDetailes(note){
+            this.showDetails = false
+            noteService.updateNote(note)
+
+        },
+        editTags(){
+            this.showDetails = true
+            this.detailTags = this.tags
+        },
+        closeTags(tags){
+            console.log(tags);
+            this.showDetails = false
+            noteService.saveTags(tags)
+            noteService.getTags()
+            .then(tags=>{
+                this.tags = tags
+            })
+        },
         // arrangeTodo(noteId,todoLoc){
         //     const idx = this.notes.findIndex(note => note.id === noteId)  
         //     const arr = this.notes[idx].info.todos
@@ -174,9 +199,8 @@ export default {
         unPinnedNotesToShow(){
             return this.unPinnedNotes
         },
-        noteDe(){
-            return this.detailNote
-        }
+        
+
     },
     components: {
 		noteList,

@@ -10,10 +10,10 @@ export default {
                         <input
                             oncontextmenu="return false"
                             @contextmenu="removeInput(index)"
+                            title="Right click to delete"
                             type="input"
                             v-for="(notetodo, index) in noteTodos"
                             :key="index"
-                            title="Right click to delete"
                             v-model="noteTodos[index].txt"
                             placeholder="Add an item"/>
                     </div>
