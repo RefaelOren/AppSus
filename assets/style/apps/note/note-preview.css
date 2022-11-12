@@ -87,13 +87,13 @@
 
 .remove-btn{
     font-size: large;
-    color: black;
+    color: white;
     font-weight: bold;
     cursor:default;
     padding: 0;
     background-color: transparent;
     border: none;
-    -webkit-text-stroke: 1px white;
+    -webkit-text-stroke: 1px black;
 } 
 
 .note .color-container{
@@ -168,7 +168,8 @@
 
 .edit-container .tag{
     color: whitesmoke;
-    padding: 15px;
+    padding: 10px;
+    padding-top: 15px;
     font-size: 1.3rem;
     font-weight:1000;
     margin-left: 40px;
@@ -176,8 +177,23 @@
 }
 
 .edit-container .tag:hover{
-    padding: 10px;
     border: 1px solid transparent;
     background-color: rgba(43, 39, 39, 0.155);
     border-radius: 100px;
+}
+
+.tags-list{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    width: max-content;
+    padding: 10px;
+    border: 1px solid black;
+    border-radius: 25px;
+    position: fixed;
+    bottom: 55px;
+    /* top:0; */
+    /* right: 0px; */
+    z-index: 10;
+    background-color: gray;
 }

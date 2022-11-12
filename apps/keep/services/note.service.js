@@ -7,8 +7,10 @@ export const noteService={
     addNote,
     removeNote,
     updateNote,
+    getTags,
 }
 const NOTES_KEY = 'notesDB'
+const TAGS_KEY = 'tagsDB'
 
 const notes = [ 
     { 
@@ -103,4 +105,15 @@ function _createTxtNote(noteInfo){
             },
         style: { backgroundColor: noteInfo.backgroundColor }
     }
+}
+
+function getTags(){
+    return storageService.query(TAGS_KEY)
+        .then(tags=>{
+            if(!tags || !tags.length){
+                tags = ['Home','Work']
+                _save(TAGS_KEY,tags)
+            }
+            return tags
+        })
 }

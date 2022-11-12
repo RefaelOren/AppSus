@@ -13,12 +13,14 @@ export default {
             <div class="note-container">
                 <note-add @add="addNote"/>
                 <note-list
+                    @tag="ToggleCheck"
                     @toggle="togglePin"
                     @remove="removeNote"
                     @changecolor="changecolor" 
                     v-if="notes" 
                     :pinnedNotes="pinnedNotesToShow"
-                    :unPinnedNotes="unPinnedNotesToShow"/>
+                    :unPinnedNotes="unPinnedNotesToShow"
+                    :tags="tags"/>
                 <note-details />
             </div>
         </section>
@@ -30,6 +32,7 @@ export default {
             unPinnedNotes:[],
             notesToShow: [],
             filterBy:'',
+            tags:[]
         }
     },
     created(){
@@ -37,6 +40,10 @@ export default {
             .then(notes => {
                 this.notes = notes
                 this.filterNotes(this.filterBy)
+            })
+        noteService.getTags()
+            .then(tags=>{
+                this.tags = tags
             })
     },
     methods: {
@@ -89,6 +96,16 @@ export default {
             this.sortNotes()
             console.log(this.notesToShow);
         },
+        ToggleCheck(note){
+            console.log(note.tag);
+            const idx = this.notes.findIndex(notei => notei.id === note.id)
+            if(note.status === 'add') this.notes[idx].info.tags.push(note.tag)
+            else {
+                const tag = this.notes[idx].info.tags.findIndex(tag => tag === note.tag)
+                this.notes[idx].info.tags.splice(tag,1)
+            }
+            noteService.updateNote(this.notes[idx])
+        }
       
     },
     computed: {

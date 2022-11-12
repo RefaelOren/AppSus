@@ -1,8 +1,13 @@
 .note-filter{
+    position: fixed;
+    top:10;
+    height: 80vh;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
-    width: 20%;
+    width: fit-content;
+    background-color: white;
+    /* width: 20%; */
 }
 .filter-notes{
     padding-left: 40px;
@@ -13,7 +18,8 @@
     border-radius: 0px 25px 25px 0px;
 }
 
-.filter-notes span{
+.filter-name{
+    width:15vw;
     padding-left: 30px;
 }
 
@@ -23,12 +29,53 @@
 }
 
 .filter-notes .tag{
+    padding-left: 20px;
     color: whitesmoke;
     font-size: 1.4rem;
     font-weight:1000;
     -webkit-text-stroke: 2px black;
 }
 
+.icon{
+    width: 5vw;
+}
+
 .select{
     background-color: #feefc3;
+}
+
+.alone{
+    margin: 0;
+    padding: 0;
+    border-radius: 50%;
+    width: min-content;
+}
+
+.alone .icon{
+    width: fit-content;
+    height: fit-content;
+    padding: 10px;
+    padding-left: 15px;
+}
+
+.alone .tag{
+    padding-left: 15px;
+}
+
+.icons{
+    margin:0;
+    width: 5vw;
+    padding-left: 35px;
+}
+
+.note-filter button{
+    border: none;
+    color: black;
+    background-color: inherit;
+    text-align: start;
+    padding-left: 55px;
+}
+
+.icons button{
+    padding-left: 20px;
 }

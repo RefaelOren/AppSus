@@ -1,5 +1,5 @@
 export default {
-    props:['note'],
+    props:['note','tags'],
     template: `
         <section ref="note" tabindex="0" class="note note-img" :style="noteStyle">
             <img :src="note.info.url"/>
@@ -23,6 +23,14 @@ export default {
                         <div class="color" :style="{backgroundColor:'whitesmoke'}" @click="chooseBgColor('whitesmoke')"></div>
                     </div>
                 </div>
+                <div class="fa-solid fa-tag tag" @click="toggleTag"></div>
+                <div class="tags-list" v-if="isTag">
+                    <section  ref="tag" v-for="tag in tags">
+                        <input  type="checkbox" :name="tag" @click="ToggleCheck(tag)" v-if="note.info.tags.findIndex(tagi=>tagi === tag) > -1" checked>
+                        <input type="checkbox" :name="tag" @click="ToggleCheck(tag)" v-else>
+                        {{tag}}
+                    </section>
+                </div>
                 <button class="remove-btn" @click="remove(note.id)" title="Delete note">X</button>
             </div>
         </section>
@@ -31,6 +39,7 @@ export default {
         return{
             bgColor:this.note.style.backgroundColor,
             iscolor:false,
+            isTag:false
         }
     },
     methods: {
@@ -54,6 +63,18 @@ export default {
             const noteRef = this.$refs.note;
             if(this.iscolor) noteRef.focus();
             else noteRef.blur()
+        },
+        ToggleCheck(tag){
+            if(this.note.info.tags.findIndex(tagi=> tagi === tag) > -1) {
+                this.$emit('tag',{tag:tag,status:'remove',id:this.note.id})
+            }
+            else {
+                this.$emit('tag',{tag:tag,status:'add',id:this.note.id})
+            }
+        },
+        toggleTag(){
+            this.isTag = !this.isTag
+            this.focusOnNote()
         }, 
     },
     computed: {
