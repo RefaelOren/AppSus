@@ -1,50 +1,51 @@
-
-.note-add{
+.note-add {
     display: flex;
     align-items: center;
-    width: max-content;
+    width: min-content;
     justify-content: space-between;
-    margin:0 auto;
+    margin: 0 auto;
     border-radius: 10px;
-    border: solid rgb(9, 8, 8,30%);
-    box-shadow:0px 0px 10px -2px #000000;
-    border-width:1px 1px 1px 2px;
+    border: solid rgb(9, 8, 8, 30%);
+    box-shadow: 0px 0px 10px -2px #000000;
+    border-width: 1px 1px 1px 2px;
 }
 
-.init-form{
+.init-form {
     display: flex;
+    gap: 15px;
     align-items: center;
+    justify-content: space-evenly;
 }
 
-.title{
+.title {
     margin: 0;
     display: block;
     margin-right: auto;
 }
 
-.note-add button{
+.note-add button {
     color: black;
     border: none;
     background-color: transparent;
 }
 
-.add-form{
+.add-form {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.add-form input{
+.add-form input {
     border: none;
     background-color: inherit;
 }
 
-.color-container{
+.color-container {
     display: flex;
     flex-direction: column;
 }
 
-.note-add .color-picker{
+.note-add .color-picker {
     width: max-content;
     display: flex;
     padding: 10px;
@@ -56,7 +57,7 @@
     z-index: 10;
     background-color: gray;
 }
-.note-add .color{
+.note-add .color {
     margin: 0px 5px;
     padding: 5px;
     border: 1px solid black;
@@ -66,10 +67,10 @@
     cursor: pointer;
 }
 
-.toggle-color{
+.toggle-color {
     cursor: pointer;
 }
 
-.note-add input:hover{
-    cursor:text;
+.note-add input:hover {
+    cursor: text;
 }

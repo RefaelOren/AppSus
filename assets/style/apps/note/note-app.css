@@ -1,19 +1,16 @@
-.note-index{
-    height: 80vh;
+.note-index {
+    min-height: 80vh;
     display: flex;
     flex-direction: row;
     width: 100%;
-    overflow-y: scroll;
     padding-top: 10px;
 }
 
-.note-container{
+.note-container {
     padding-top: 10px;
-    margin:0 auto;
+    margin: 0 auto;
     display: flex;
     flex-direction: column;
     width: 80%;
-    height: 75vh;
+    min-height: 75vh;
 }
-
-
