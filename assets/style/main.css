@@ -30,3 +30,6 @@
 @import 'apps/note/note-add.css';
 @import 'apps/note/note-filter.css';
 @import 'apps/note/note-list.css';
+
+/* book */
+@import '../../apps/Miss-Books/css/book.css'

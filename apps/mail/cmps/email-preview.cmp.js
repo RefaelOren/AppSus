@@ -21,7 +21,6 @@ export default {
                 `,
     methods: {
         starred() {
-            this.email.isStarred = !this.email.isStarred;
             this.$emit('starred', this.email.id);
         },
     },

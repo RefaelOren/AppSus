@@ -163,12 +163,12 @@ function _save(entityType, entities) {
 function _createTxtNote(noteInfo){
     return {
         type: "note-txt", 
-        isPinned: false, 
+        isPinned: noteInfo.isPinned || false, 
         info: 
             { 
-                title: '',
+                title: noteInfo.title || '',
                 txt:noteInfo.txt,
-                tags:[],
+                tags:[noteInfo.tags || null],
             },
         style: { backgroundColor: noteInfo.backgroundColor }
     }

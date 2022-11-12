@@ -1,4 +1,5 @@
 import { mailService } from '../services/mail-service.js';
+import { eventBus } from '../../../services/event-bus.service.js'
 
 export default {
     template: `
@@ -8,7 +9,8 @@ export default {
                     <router-link to="/email/inbox">
                         <i class="fa-solid fa-arrow-left-long"></i>
                     </router-link>
-                      <i class="fa-solid fa-trash-can"></i>
+                    <i class="fa-solid fa-trash-can" @click="deleteEmail"></i>
+                    <button @click="sendNote">add as note</button>
                 </div>
                 <div className="subject">
                     <h3>{{email.subject}}</h3>
@@ -32,13 +34,22 @@ export default {
         mailService.getById(id).then((email) => {
             this.email = email;
             console.log(this.email);
+            this.email.isRead = true
+            mailService.updateEmail(this.email)
         });
+
     },
 
     unmounted() {},
 
     methods: {
-        remove() {},
+        deleteEmail(){
+            mailService.removeEmail(this.email.id).then(()=>this.$router.push('/email/inbox'))
+        },
+        sendNote(){
+           this.$router.push('/note')
+            eventBus.emit('newNote',{title:this.email.subject,txt:this.email.body,backgroundColor:'whitesmoke'})
+        }
     },
 
     computed: {

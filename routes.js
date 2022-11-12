@@ -1,6 +1,8 @@
 import homePage from './views/app-home.cmp.js';
 import aboutPage from './views/app-about.cmp.js';
 
+import bookApp from './apps/Miss-Books/js/views/book-app.cmp.js';
+import bookDetails from './apps/Miss-Books/js/views/book-details.cmp.js'
 import emailDetails from './apps/mail/pages/email-details.cmp.js';
 import mailApp from './apps/mail/pages/email-index.cmp.js';
 import noteApp from './apps/keep/pages/note-index.cmp.js';
@@ -36,6 +38,14 @@ const routerOptions = {
         {
             path: '/about',
             component: aboutPage,
+        },
+        {
+            path: '/book',
+            component: bookApp,
+        },
+        {
+            path: '/book/:id',
+            component: bookDetails,
         },
     ],
 };

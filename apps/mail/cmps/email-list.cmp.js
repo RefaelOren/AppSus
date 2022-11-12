@@ -46,7 +46,9 @@ export default {
         },
 
         updateStarred(emailId) {
-            console.log(emailId);
+            const idx = this.emails.findIndex(email=> email.id === emailId)
+            this.emails[idx].isStarred = !this.emails[idx].isStarred
+            mailService.updateEmail(this.emails[idx])
         },
     },
 

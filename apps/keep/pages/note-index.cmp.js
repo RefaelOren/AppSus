@@ -1,4 +1,5 @@
 import {noteService} from '../services/note.service.js'
+import { eventBus } from '../../../services/event-bus.service.js'
 
 import noteDetails from './note-details.cmp.js'
 import noteList from '../cmps/note-list.cmp.js'
@@ -43,10 +44,17 @@ export default {
                 // this.notes.forEach(note => {if(note.type === "note-todos")this.arrangeTodo(note.id)})
                 this.filterNotes(this.filterBy)
             })
+
         noteService.getTags()
             .then(tags=>{
                 this.tags = tags
             })
+    },
+    mounted(){
+        eventBus.on('newNote',note=>{
+            console.log(note);
+            this.addNote(note)
+        })
     },
     methods: {
         togglePin(id){
@@ -73,9 +81,7 @@ export default {
             console.log(noteInfo);
             noteService.addNote(noteInfo)
                 .then(note=>{
-                    console.log('bef',this.notes);
                     this.notes.push(note)
-                    console.log('aft',this.notes);
                     this.filterNotes(this.filterBy)
                 })
         },

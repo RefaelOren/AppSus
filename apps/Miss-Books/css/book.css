@@ -1,0 +1,286 @@
+/* * {
+    box-sizing: border-box;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS',
+        sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+body {
+    margin: 0;
+} */
+
+/* a {
+    text-decoration: none;
+    color: black;
+} */
+
+/* .app-footer,
+.app-header {
+    display: flex;
+    align-items: center;
+    height: 12.5vh;
+    background-color: rgb(143, 95, 190);
+    color: white;
+    padding: 30px 20px;
+}
+
+.app-header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.app-header .logo {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.app-header nav {
+    display: flex;
+    gap: 20px;
+    margin-inline-end: 50px;
+}
+
+.app-header .nav-link {
+    color: white;
+}
+
+nav .router-link-exact-active {
+    transform: scale(1.2);
+    padding: 0.2rem;
+    border-radius: 5px;
+    background-color: rgb(70, 28, 113);
+}
+
+.app-header h1 {
+    font-family: cursive;
+}
+
+.app-header img {
+    width: 50px;
+    height: 60px;
+    margin-inline-end: 10px;
+    cursor: pointer;
+} */
+
+.book-app {
+    position: relative;
+    min-height: 75vh;
+    background-color: rgba(228, 222, 222, 0.902);
+    padding: 10px;
+}
+
+.book-filter {
+    padding: 10px;
+    text-align: start;
+}
+
+.book-filter .text-filter {
+    padding: 0.5rem;
+    width: 275px;
+    margin: 10px auto;
+    font-size: 1rem;
+    border-radius: 5px;
+    border: 1px solid lightgray;
+}
+
+.book-filter label {
+    margin-inline-end: 10px;
+}
+
+label input {
+    padding: 0.5rem;
+    width: 65px;
+    border-radius: 5px;
+    border: 1px solid lightgray;
+}
+
+.book-list ul {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 15px;
+    list-style-type: none;
+    padding: 10px;
+}
+
+.book-list ul li {
+    max-width: 100%;
+    text-align: center;
+    background-color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.5s;
+    margin: 0 auto;
+}
+
+.book-list ul li:hover {
+    box-shadow: 0px 0px 14px 3px rgba(0, 0, 0, 0.5);
+    transform: scale(1.02);
+}
+
+.book-list li img {
+    max-width: 100%;
+    object-fit: cover;
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+}
+
+.book-review-details {
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.book-details {
+    background-color: white;
+    padding: 10px;
+    /* position: fixed; */
+    width: 100%;
+    min-height: 75vh;
+    top: 0;
+    left: 0;
+}
+
+.book-details .close-btn {
+    width: 30px;
+    height: 30px;
+    padding: 0 0.2rem;
+    margin: 1rem;
+    right: 0;
+    top: 0;
+    cursor: pointer;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: white;
+    border: none;
+    background-color: blue;
+    border-radius: 5px;
+}
+
+.book-details .section-center {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 10px;
+}
+
+.section-center img>:not(.about) {
+    max-width: 100%;
+    aspect-ratio: 3/4;
+    object-fit: cover;
+    margin: 0 auto;
+    border-radius: 5px;
+    box-shadow: 0px 0px 14px 3px rgba(0, 0, 0, 0.5);
+}
+
+.section-center .details-content>:not(.about) {
+    max-width: 100%;
+    margin: 0 auto;
+    position: relative;
+    padding: 0 10px;
+}
+
+.details-content h2 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.details-content h4 {
+    color: rgb(169, 165, 165);
+    margin-bottom: 10px;
+}
+
+.details-content h3 {
+    margin-bottom: 10px;
+}
+
+.book-details h5 {
+    color: rgb(169, 165, 165);
+    margin-bottom: 10px;
+    font-size: 1rem;
+}
+
+.details-content p {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+.details-content .sale {
+    font-size: 1.5rem;
+    color: red;
+    font-weight: 700;
+}
+
+.red {
+    color: red;
+}
+
+.green {
+    color: green;
+}
+
+.long-text span {
+    color: rgb(169, 165, 165);
+    cursor: pointer;
+}
+
+.user-msg {
+    position: fixed;
+    top: 40px;
+    right: 20px;
+
+    width: 290px;
+    background-color: rgb(208, 206, 139);
+    padding: 10px;
+    border-radius: 5px;
+    /* transition: opacity 1s; */
+}
+.success {
+    background-color: rgb(88, 130, 88);
+}
+.fail {
+    background-color: rgb(187, 104, 104);
+}
+
+.review-add {
+    display: flex;
+}
+
+.review-add * {
+    border: none;
+    padding: 5px;
+    border-radius: 5px;
+    list-style-type: none;
+}
+
+.review-add form {
+    background-color: rgb(233, 228, 228);
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    margin: 0 auto;
+    border-radius: 5px;
+    gap: 5px;
+}
+
+.review-add form button {
+    width: 50%;
+    margin: 0 auto;
+}
+
+.review-add form select {
+    width: 25%;
+}
+
+@media (min-width: 653px) {
+    .review-add {
+        flex-direction: column;
+    }
+}

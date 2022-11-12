@@ -21,8 +21,9 @@ export default {
                 </div>
                 <div>
                     <h1>AppSus Books</h1>
-                    <router-link to="/books"></router-link>
-                    <img src="assets/img/books.png" alt="" />
+                    <router-link to="/book">
+                        <img src="assets/img/books.png" alt="" />
+                    </router-link>
                     <h3>Enjoy our selection of top class books</h3>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem ex animi vel quam magnam eveniet laborum harum nihil quod nam?</p>
                 </div>

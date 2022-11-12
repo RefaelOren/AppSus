@@ -9,6 +9,8 @@ export const mailService = {
     getEmptyEmail,
     save,
     emailsToDisplay,
+    updateEmail,
+    removeEmail,
 };
 
 const loggedinUser = {
@@ -269,6 +271,10 @@ function getEmptyEmail() {
     };
 }
 
+function updateEmail(Email){
+    storageService.put(EMAIL_KEY,Email)
+}
+
 function save(email) {
     email.id = utilService.makeId();
     return storageService.post(EMAIL_KEY, email);
@@ -295,4 +301,8 @@ function emailsToDisplay(filterBy) {
         case 'inbox':
             return query();
     }
+}
+
+function removeEmail(emailId){
+    return storageService.remove(EMAIL_KEY,emailId)
 }
