@@ -1,7 +1,7 @@
 export default {
     props:['note','tags'],
     template: `
-        <section ref="note" tabindex="0" class="note note-txt" :style="noteStyle">
+        <section ref="note" tabindex="0" class="note note-txt" :style="noteStyle" @click.self="openDetails">
             <h2>{{ note.info.title }}</h2>
             <h4>{{ note.info.txt }}</h4>
             <i :style="{color:'black'}" title="Unpin note" @click="togglePin(note.id)" class="fa-solid fa-thumbtack" v-if="note.isPinned"></i>
@@ -75,6 +75,9 @@ export default {
         toggleTag(){
             this.isTag = !this.isTag
             this.focusOnNote()
+        },
+        openDetails(){
+            this.$emit('openDetails',this.note)
         },
         
     },

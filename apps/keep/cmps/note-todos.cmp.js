@@ -1,7 +1,7 @@
 export default {
     props:['note','tags'],
     template: `
-        <section ref="note" tabindex="0" class="note note-todos" :style="noteStyle">
+        <section ref="note" tabindex="0" class="note note-todos" :style="noteStyle" @click.self="openDetails">
             <h2>{{ note.info.title }}</h2>
             <section class="todos" v-for="todo in note.info.todos">
                 <input type="checkbox" :name="todo.txt" @click="toggleTodo(todo.txt,todo.doneAt)" v-if="todo.doneAt" checked>
@@ -83,6 +83,9 @@ export default {
         toggleTodo(txt,done){
             const todoLoc = this.note.info.todos.findIndex(todo=>todo.txt === txt)
             this.$emit('todo', {id:this.note.id,todoLoc:todoLoc,done:done});
+        },
+        openDetails(){
+            this.$emit('openDetails',this.note)
         },  
     },
     computed: {

@@ -23,11 +23,15 @@ export default {
                 </div>
             </form>  
             <button class="fa-regular fa-square-check note-btn" v-if="isFormOpen === false" @click="openTodo"></button>
-            <input id="fileUpload" type="file" hidden>
-            <button @click="chooseFiles()">Choose</button>
-            <img :src="previewImage" class="uploading-image" />
-        </section>
-    `,
+            <button class="btn btn-info" @click="onPickFile"><i class="fa-solid fa-image"></i></button>
+            <input
+                type="file"
+                style="display: none"
+                ref="fileInput"
+                accept="image/*"
+                @change="onFilePicked"/>
+            </section>
+            `,
     data(){
         return{
             noteTxt:null,
@@ -35,7 +39,8 @@ export default {
             iscolor:false,
             noteTitle:null,
             isFormOpen:false,
-            previewImage:null,
+            image: null,
+            imageUrl:null
         }
     },
     mounted(){
@@ -70,9 +75,20 @@ export default {
         openTodo(){
             this.$emit('openTodo',false)
         },
-        chooseFiles() {
-            document.getElementById("fileUpload").click()
+        onPickFile () {
+            this.$refs.fileInput.click()
         },
+        onFilePicked (event) {
+            const files = event.target.files
+            let filename = files[0].name
+            const fileReader = new FileReader()
+            fileReader.addEventListener('load', () => {
+              this.imageUrl = fileReader.result
+              this.$emit('addPhoto',this.imageUrl)
+            })
+            fileReader.readAsDataURL(files[0])
+            this.image = files[0]
+        }
     },
     computed: {
         inputStyle(){

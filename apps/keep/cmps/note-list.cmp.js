@@ -16,6 +16,7 @@ export default {
                     <!-- <note-preview :note="note"/> -->
                 <component
                     @todo="todo"
+                    @openDetails="openDetails"
                     @tag="ToggleCheck"
                     @toggle="togglePin(note.id)"
                     @color="changecolor"
@@ -36,6 +37,7 @@ export default {
                 <!-- <note-preview :note="note"/> -->
                 <component
                     @todo="todo"
+                    @openDetails="openDetails"
                     @tag="ToggleCheck"
                     @toggle="togglePin(note.id)"
                     @remove="remove(note.id)"
@@ -66,6 +68,9 @@ export default {
         },
         todo(todo){
             this.$emit('todo', todo);
+        },
+        openDetails(note){
+            this.$emit('openDetails',note)
         }
     },
     computed: {},

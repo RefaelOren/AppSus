@@ -1,0 +1,13 @@
+.note-details{
+    position:fixed;
+    display: flex;
+    flex-direction: column;
+    top: 50%;
+    bottom: 50%;
+    right: 50%;
+    left: 50%;
+    width: max-content;
+    height: max-content;
+    padding: 10px;
+    background-color: whitesmoke;
+}

@@ -16,12 +16,14 @@ export default {
                 <note-add v-if="isSwitchTodo" 
                     @closeAdd="isSwitchTodo = true"
                     @openTodo="isSwitchTodo = false"
+                    @addPhoto="addPhoto"
                     @add="addNote"/>
                 <note-add-todo v-else
                     @closeAdd="isSwitchTodo = true" 
                     @addTodo="addTodo"/>
                 <note-list
                     @todo="toggleTodo"
+                    @openDetails="openDetails"
                     @tag="ToggleCheck"
                     @toggle="togglePin"
                     @remove="removeNote"
@@ -30,7 +32,10 @@ export default {
                     :pinnedNotes="pinnedNotesToShow"
                     :unPinnedNotes="unPinnedNotesToShow"
                     :tags="tags"/>
-                <note-details />
+                <note-details 
+                    v-if="showDetails"
+                    :note="detailNote"
+                    :tags="tags"/>
             </div>
         </section>
     `,
@@ -43,6 +48,8 @@ export default {
             filterBy:'',
             tags:[],
             isSwitchTodo:true,
+            showDetails:false,
+            detailNote:null,
         }
     },
     created(){
@@ -137,7 +144,18 @@ export default {
                 .then(note=>{
                     this.notes.push(note)
                     this.filterNotes(this.filterBy)
-                })        
+            })        
+        },
+        addPhoto(photo){
+            noteService.addImg(photo)
+                .then(note=>{
+                    this.notes.push(note)
+                    this.filterNotes(this.filterBy)
+            })        
+        },
+        openDetails(note){
+            this.detailNote= note
+            this.showDetails = true
         }
         // arrangeTodo(noteId,todoLoc){
         //     const idx = this.notes.findIndex(note => note.id === noteId)  
@@ -156,6 +174,9 @@ export default {
         unPinnedNotesToShow(){
             return this.unPinnedNotes
         },
+        noteDe(){
+            return this.detailNote
+        }
     },
     components: {
 		noteList,

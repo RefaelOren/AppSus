@@ -9,6 +9,7 @@ export const noteService={
     updateNote,
     getTags,
     addTodo,
+    addImg,
 }
 const NOTES_KEY = 'notesDB'
 const TAGS_KEY = 'tagsDB'
@@ -154,6 +155,11 @@ function addTodo(noteInfo){
     return storageService.post(NOTES_KEY,note)
 }
 
+function addImg(noteInfo){
+    const note = _createImg(noteInfo)
+    return storageService.post(NOTES_KEY,note)
+}
+
 function removeNote(id){
     return storageService.remove(NOTES_KEY,id)
 }
@@ -192,6 +198,20 @@ function _createTodoNote(noteInfo){
             
         },
         style: { backgroundColor: noteInfo.backgroundColor }
+    }
+}
+
+function _createImg(noteInfo){
+    return{ 
+            type: "note-img",
+            isPinned: false, 
+            info: 
+            {
+                tags: [],
+                url: noteInfo, 
+                title: "" 
+            }, 
+            style: { backgroundColor: "whitesmoke" }
     }
 }
 

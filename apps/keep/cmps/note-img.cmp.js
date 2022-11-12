@@ -1,10 +1,10 @@
 export default {
     props:['note','tags'],
     template: `
-        <section ref="note" tabindex="0" class="note note-img" :style="noteStyle">
+        <section ref="note" tabindex="0" class="note note-img" :style="noteStyle" @click="openDetails">
             <img :src="note.info.url"/>
             <div class="img-info" v-if="note.info.title||note.info.txt">
-                <div class=img-title v-if="note.info.title">{{note.info.title}}</div>
+                <h2 class=img-title v-if="note.info.title">{{note.info.title}}</h2>
                 <div class=img-txt v-if="note.info.txt">{{note.info.txt}}</div>
             </div>
             <i :style="{color:'black'}" title="Unpin note" @click="togglePin(note.id)" class="fa-solid fa-thumbtack" v-if="note.isPinned"></i>
@@ -78,6 +78,9 @@ export default {
         toggleTag(){
             this.isTag = !this.isTag
             this.focusOnNote()
+        },
+        openDetails(){
+            this.$emit('openDetails',this.note)
         }, 
     },
     computed: {
